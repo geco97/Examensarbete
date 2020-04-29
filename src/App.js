@@ -12,7 +12,6 @@ import {
   MDBIcon
 } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ReactComponent as Logo } from './assets/logo.svg';
 import Routes from './Routes';
 
 class App extends Component {
@@ -47,8 +46,7 @@ class App extends Component {
         <div className='flyout'>
           <MDBNavbar dark expand='md' fixed='top' scrolling>
             <MDBNavbarBrand href='/' className='py-0 font-weight-bold'>
-              <Logo style={{ height: '2.5rem', width: '2.5rem' }} />
-              <strong className='align-middle'>MDB React</strong>
+            <img  className=" size-40 text-white" src={require("./assets/logo.png")} />
             </MDBNavbarBrand>
             <MDBNavbarToggler
               onClick={this.toggleCollapse('mainNavbarCollapse')}
@@ -82,130 +80,7 @@ class App extends Component {
                     <strong>Register</strong>
                   </MDBNavLink>
                 </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    onClick={this.closeCollapse('mainNavbarCollapse')}
-                    to='/css'
-                  >
-                    <strong>CSS</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    onClick={this.closeCollapse('mainNavbarCollapse')}
-                    to='/components'
-                  >
-                    <strong>Components</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    onClick={this.closeCollapse('mainNavbarCollapse')}
-                    to='/advanced'
-                  >
-                    <strong>Advanced</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    onClick={this.closeCollapse('mainNavbarCollapse')}
-                    to='/navigation'
-                  >
-                    <strong>Navigation</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    onClick={this.closeCollapse('mainNavbarCollapse')}
-                    to='/forms'
-                  >
-                    <strong>Forms</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    onClick={this.closeCollapse('mainNavbarCollapse')}
-                    to='/tables'
-                  >
-                    <strong>Tables</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    onClick={this.closeCollapse('mainNavbarCollapse')}
-                    to='/modals'
-                  >
-                    <strong>Modals</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    onClick={this.closeCollapse('mainNavbarCollapse')}
-                    to='/addons'
-                  >
-                    <strong>Addons</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-
-                
-
-                <MDBNavItem>
-                  <MDBTooltip
-                    placement='bottom'
-                    domElement
-                    style={{ display: 'block' }}
-                  >
-                    <a
-                      className='nav-link Ripple-parent'
-                      href='https://mdbootstrap.com/products/react-ui-kit/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <strong>
-                        <MDBIcon far icon='gem' />
-                      </strong>
-                    </a>
-                    <span>PRO</span>
-                  </MDBTooltip>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBTooltip
-                    placement='bottom'
-                    domElement
-                    style={{ display: 'block' }}
-                  >
-                    <a
-                      className='nav-link Ripple-parent'
-                      href='https://mdbootstrap.com/docs/react/getting-started/download/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <strong>
-                        <MDBIcon icon='download' />
-                      </strong>
-                    </a>
-                    <span>FREE</span>
-                  </MDBTooltip>
-                </MDBNavItem>
-                <MDBNavItem className='mr-2'>
-                  <MDBTooltip
-                    placement='bottom'
-                    domElement
-                    style={{ display: 'block' }}
-                  >
-                    <a
-                      className='nav-link Ripple-parent'
-                      href='https://mdbootstrap.com/support/cat/react/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <strong>
-                        <MDBIcon icon='question-circle' />
-                      </strong>
-                    </a>
-                    <span>SUPPORT</span>
-                  </MDBTooltip>
-                </MDBNavItem>
+               
               </MDBNavbarNav>
             </MDBCollapse>
           </MDBNavbar>
@@ -215,9 +90,7 @@ class App extends Component {
           </main>
           <MDBFooter >
             <p className='footer-copyright mb-0 py-3 text-center'>
-              &copy; {new Date().getFullYear()} Copyright:
-              <a href='https://www.MDBootstrap.com'> MDBootstrap.com </a>
-            </p>
+              &copy; {new Date().getFullYear()} Copyright: Benan & Jack</p>
           </MDBFooter>
         </div>
       </Router>

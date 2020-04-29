@@ -1,9 +1,17 @@
 body {
   background: rgb(45,37,64);
-  background: -moz-linear-gradient(0deg, rgba(45,37,64,1) 35%, rgba(64,46,77,1) 100%);
-  background: -webkit-linear-gradient(0deg, rgba(45,37,64,1) 35%, rgba(64,46,77,1) 100%);
-  background: linear-gradient(0deg, rgba(45,37,64,1) 35%, rgba(64,46,77,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2d2540",endColorstr="#402e4d",GradientType=1); 
+  background: -moz-linear-gradient(0deg, rgb(14, 0, 51) 35%, rgb(56, 0, 72) 100%);
+  background: -webkit-linear-gradient(0deg, rgb(14, 0, 51) 35%, rgb(56, 0, 72) 100%);
+  background: linear-gradient(320deg, rgb(14, 0, 51) 35%, rgb(56, 0, 72) 100%);
+  filter: progid:DXImageTransform.Mi1crosoft.gradient(startColorstr="#2d2540",endColorstr="#402e4d",GradientType=1); 
+}
+.SectionGradientOdd{
+  background: rgb(98,166,167);
+  background:  linear-gradient(135deg, rgb(27, 49, 49) 0%, rgb(61, 43, 77) 33%, rgb(72, 45, 64) 70%);
+}
+.SectionGradientEven{
+  background: rgb(98,166,167);
+  background: linear-gradient(135deg, rgb(27, 49, 49) 0%, rgb(61, 43, 77) 33%, rgb(72, 45, 64) 70%);
 }
 
 a.border.nav-link.border-light.rounded.mr-1 {
@@ -37,7 +45,6 @@ a.border.nav-link.border-light.rounded.mr-1:hover {
   height: 100%;
   width: 100%;
   position: absolute;
-/*  background: url('https://mdbootstrap.com/wp-content/uploads/2016/12/big-bundle1.jpg');*/
   background-position: center center;
   background-size: cover;
   filter: opacity(.1);

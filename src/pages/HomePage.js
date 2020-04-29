@@ -24,64 +24,71 @@ class HomePage extends React.Component {
       <>
         <MDBEdgeHeader color=' darken-3' className='sectionPage' />
         <div className='mt-3 mb-5'>
-          <MDBFreeBird>
+          <MDBFreeBird className='mt-3 mb-5'>
             <MDBRow>
               <MDBCol
-                md='10'
-                className='mx-auto float-none white z-depth-1 py-2 px-2'
+                md='12'
+                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientOdd' style={{height:"700px"}}
               >
                 <MDBCardBody className='text-center'>
-                  <h2 className='h2-responsive mb-4'>
-                    <strong className='font-weight-bold'>
-                      <img
-                        src='https://mdbootstrap.com/img/Marketing/other/logo/logo-mdb-react-small.png'
-                        alt='mdbreact-logo'
-                        className='pr-2'
-                      />
-                      Demo App
-                    </strong>
-                  </h2>
+                  
                   <MDBRow />
-                  <p>React Bootstrap with Material Design</p>
-                  <p className='pb-4'>
-                    This application shows the actual use of MDB React
-                    components in the application.
-                  </p>
                   <MDBRow className='d-flex flex-row justify-content-center row'>
-                    <a
-                      className='border nav-link border-light rounded mr-1 mx-2 mb-2'
-                      href='https://mdbootstrap.com/react/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <MDBIcon icon='graduation-cap' className='mr-2' />
-                      <span className='font-weight-bold'>
-                        Official Documentation
-                      </span>
-                    </a>
-                    <a
-                      className='border nav-link border-light rounded mx-2 mb-2'
-                      href='https://mdbootstrap.com/products/react-ui-kit/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <MDBIcon far icon='gem' className='mr-2' />
-                      <span className='font-weight-bold'>PRO</span>
-                    </a>
-                    <a
-                      className='border nav-link border-light rounded mx-2 mb-2'
-                      href='https://mdbootstrap.com/docs/react/getting-started/download/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <MDBIcon icon='download' className='mr-2' />
-                      <span className='font-weight-bold'>FREE</span>
-                    </a>
+                   
                   </MDBRow>
                 </MDBCardBody>
               </MDBCol>
             </MDBRow>
           </MDBFreeBird>
+          <MDBFreeBird className='mt-3 mb-5'>
+            <MDBRow>
+              <MDBCol
+                md='12'
+                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientEven' style={{height:"700px"}}
+              >
+                <MDBCardBody className='text-center'>
+                  
+                  <MDBRow />
+                  <MDBRow className='d-flex flex-row justify-content-center row'>
+                   
+                  </MDBRow>
+                </MDBCardBody>
+              </MDBCol>
+            </MDBRow>
+          </MDBFreeBird>
+          <MDBFreeBird className='mt-3 mb-5 '>
+            <MDBRow>
+              <MDBCol
+                md='12'
+                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientOdd' style={{height:"700px"}}
+              >
+                <MDBCardBody className='text-center'>
+                  
+                  <MDBRow />
+                  <MDBRow className='d-flex flex-row justify-content-center row'>
+                   
+                  </MDBRow>
+                </MDBCardBody>
+              </MDBCol>
+            </MDBRow>
+          </MDBFreeBird>
+          <MDBFreeBird className='mt-3 mb-5'>
+            <MDBRow>
+              <MDBCol
+                md='12'
+                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientEven' style={{height:"700px"}}
+              >
+                <MDBCardBody className='text-center'>
+                  
+                  <MDBRow />
+                  <MDBRow className='d-flex flex-row justify-content-center row'>
+                   
+                  </MDBRow>
+                </MDBCardBody>
+              </MDBCol>
+            </MDBRow>
+          </MDBFreeBird>
+          {/*
           <MDBContainer>
             <MDBRow>
               <MDBCol md='12' className='mt-4'>
@@ -369,12 +376,13 @@ class HomePage extends React.Component {
                         </MDBCardBody>
                       </MDBCard>
                     </MDBAnimation>
+                    
                   </MDBCol>
                   
                 </MDBRow>
               </MDBCol>
             </MDBRow>
-          </MDBContainer>
+          </MDBContainer>*/}
         </div>
       </>
     );
