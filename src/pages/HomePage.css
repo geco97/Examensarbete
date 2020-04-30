@@ -15,15 +15,18 @@ body {
 }
 
 a.border.nav-link.border-light.rounded.mr-1 {
-  color: #3F729B;
+  /*color: #3F729B;*/
+  color: #bca47a;
 }
 
 a.border.nav-link.border-light.rounded.mr-1:hover {
-  color: #1C2331;
+  /*color: #1C2331;*/
+  color: #bca47a;
 }
 
 .btn.btn-sm.indigo:hover{
-  color: #fff;
+  color: #bca47a;
+  /*color: #fff;*/
 }
 
 .nav-link.active{
