@@ -46,7 +46,7 @@ class App extends Component {
         <div className='flyout'>
           <MDBNavbar dark expand='md' fixed='top' scrolling>
             <MDBNavbarBrand href='/' className='py-0 font-weight-bold'>
-            <img  className=" size-40 text-white" src={require("./assets/logo.png")} />
+            <img  className=" size-40 text-white" src={require("./assets/Logo.PNG")} />
             </MDBNavbarBrand>
             <MDBNavbarToggler
               onClick={this.toggleCollapse('mainNavbarCollapse')}

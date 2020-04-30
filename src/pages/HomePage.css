@@ -1,9 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@300&family=Lusitana&display=swap');
 body {
   background: rgb(45,37,64);
   background: -moz-linear-gradient(0deg, rgb(14, 0, 51) 35%, rgb(56, 0, 72) 100%);
   background: -webkit-linear-gradient(0deg, rgb(14, 0, 51) 35%, rgb(56, 0, 72) 100%);
   background: linear-gradient(320deg, rgb(14, 0, 51) 35%, rgb(56, 0, 72) 100%);
   filter: progid:DXImageTransform.Mi1crosoft.gradient(startColorstr="#2d2540",endColorstr="#402e4d",GradientType=1); 
+  font-family: 'Hind Guntur', sans-serif;
+  font-family: 'Lusitana', serif;
+
+
 }
 .SectionGradientOdd{
   background: rgb(98,166,167);
