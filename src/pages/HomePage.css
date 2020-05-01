@@ -2,13 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@300&family=Lusitana&display=swap');
 body {
   background: rgb(45,37,64);
-  background: -moz-linear-gradient(0deg, rgb(14, 0, 51) 35%, rgb(56, 0, 72) 100%);
-  background: -webkit-linear-gradient(0deg, rgb(14, 0, 51) 35%, rgb(56, 0, 72) 100%);
-  background: linear-gradient(320deg, rgb(14, 0, 51) 35%, rgb(56, 0, 72) 100%);
+  background: -moz-linear-gradient(320deg, rgb(24, 13, 53) 35%, rgb(27, 2, 34) 100%);
+  background: -webkit-linear-gradient(320deg, rgb(24, 13, 53) 35%, rgb(27, 2, 34) 100%);
+  background: linear-gradient(320deg, rgb(24, 13, 53) 35%, rgb(27, 2, 34) 100%);
   filter: progid:DXImageTransform.Mi1crosoft.gradient(startColorstr="#2d2540",endColorstr="#402e4d",GradientType=1); 
   font-family: 'Lusitana', serif;
-
-
 }
 .SectionGradientOdd{
   background: rgb(98,166,167);
@@ -19,6 +17,9 @@ body {
   background: linear-gradient(135deg, rgb(27, 49, 49) 0%, rgb(61, 43, 77) 33%, rgb(72, 45, 64) 70%);
 }
 
+p,i,a,h1,h2,h3,h4,h5,h6,strong,input,label{
+  color: #bca47a;
+}
 a.border.nav-link.border-light.rounded.mr-1 {
   /*color: #3F729B;*/
   color: #bca47a;
@@ -29,11 +30,14 @@ a.border.nav-link.border-light.rounded.mr-1:hover {
   color: #bca47a;
 }
 
-.btn.btn-sm.indigo:hover{
+.btn{
   color: #bca47a;
   /*color: #fff;*/
 }
-
+.btn:hover{
+  color: #bca47a;
+  /*color: #fff;*/
+}
 .nav-link.active{
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -56,4 +60,18 @@ a.border.nav-link.border-light.rounded.mr-1:hover {
   background-position: center center;
   background-size: cover;
   filter: opacity(.1);
+}
+.md-form input:not([type]), .md-form input[type="text"]:not(.browser-default), .md-form input[type="password"]:not(.browser-default), .md-form input[type="email"]:not(.browser-default), .md-form input[type="url"]:not(.browser-default), .md-form input[type="time"]:not(.browser-default), .md-form input[type="date"]:not(.browser-default), .md-form input[type="datetime"]:not(.browser-default), .md-form input[type="datetime-local"]:not(.browser-default), .md-form input[type="tel"]:not(.browser-default), .md-form input[type="number"]:not(.browser-default), .md-form input[type="search"]:not(.browser-default), .md-form input[type="search-md"], .md-form textarea.md-textarea {
+  border-bottom: 1px solid #bca47a;
+  color: #bca47a;
+}
+.md-form input:not([type]):focus:not([readonly]), .md-form input[type="text"]:not(.browser-default):focus:not([readonly]), .md-form input[type="password"]:not(.browser-default):focus:not([readonly]), .md-form input[type="email"]:not(.browser-default):focus:not([readonly]), .md-form input[type="url"]:not(.browser-default):focus:not([readonly]), .md-form input[type="time"]:not(.browser-default):focus:not([readonly]), .md-form input[type="date"]:not(.browser-default):focus:not([readonly]), .md-form input[type="datetime"]:not(.browser-default):focus:not([readonly]), .md-form input[type="datetime-local"]:not(.browser-default):focus:not([readonly]), .md-form input[type="tel"]:not(.browser-default):focus:not([readonly]), .md-form input[type="number"]:not(.browser-default):focus:not([readonly]), .md-form input[type="search"]:not(.browser-default):focus:not([readonly]), .md-form input[type="search-md"]:focus:not([readonly]), .md-form textarea.md-textarea:focus:not([readonly]){
+  border-bottom: 1px solid #6f5221;
+  box-shadow: 0 1px 0 0 #6f5221;
+}
+.md-form .prefix.active{
+  color:#6f5221;
+}
+.md-form input:not([type]):focus:not([readonly]) + label, .md-form input[type="text"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="password"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="email"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="url"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="time"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="date"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="datetime"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="datetime-local"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="tel"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="number"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="search"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="search-md"]:focus:not([readonly]) + label, .md-form textarea.md-textarea:focus:not([readonly]) + label{
+  color:#bca47a;
 }

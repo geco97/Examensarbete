@@ -7,9 +7,7 @@ import {
   MDBCollapse,
   MDBNavItem,
   MDBFooter,
-  MDBNavLink,
-  MDBTooltip,
-  MDBIcon
+  MDBNavLink
 } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './Routes';
@@ -85,7 +83,7 @@ class App extends Component {
             </MDBCollapse>
           </MDBNavbar>
           {collapseID && overlay}
-          <main style={{ marginTop: '4rem' }}>
+          <main >
             <Routes />
           </main>
           <MDBFooter >
