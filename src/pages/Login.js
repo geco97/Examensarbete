@@ -76,7 +76,10 @@ onSubmit = (e) => {
     );
     return (
       <div id="classicformpage">
+        
         <MDBView>
+          <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
+></div>
           <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
             <MDBContainer>
               <MDBRow>
