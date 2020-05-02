@@ -61,7 +61,7 @@ onSubmit = (e) => {
     this.props.login(this.state.cred)
 }
   render() {
-     const { authError, token } = this.props;
+   const { authError, token } = this.props;
         if(token || sessionStorage.getItem('jwt')){return <Redirect to='/' />}
         var authErrorClass;
         if (!authError ) {
@@ -128,7 +128,7 @@ onSubmit = (e) => {
                   <MDBAlert color="danger" className={authErrorClass}>
                   { authError}
                  </MDBAlert>
-                    <MDBBtn disabled={!this.validateForm()} onClick={this.onSubmit} onChange={this.onChange} color="deep-purple">Login</MDBBtn>
+                    <MDBBtn disabled={!this.validateForm()} onClick={this.onSubmit} onChange={this.onChange} color="indigo">Login</MDBBtn>
                     <Link to="/Register" className="btn btn-dark" >Register</Link>
               
                           <hr className="hr-light" />

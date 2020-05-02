@@ -297,7 +297,7 @@ class Register extends Component {
                         <MDBAlert color={authErrorClass} className={authErrorShow}>
                       { massage}
                      </MDBAlert>
-                    <MDBBtn disabled={!this.validateForm()} nClick={this.onSubmit} onChange={this.onChange} color="deep-purple">Register</MDBBtn>
+                    <MDBBtn disabled={!this.validateForm()} nClick={this.onSubmit} onChange={this.onChange} color="indigo">Register</MDBBtn>
                     <Link to="/Login" className="btn btn-dark" >Login</Link>
               
                         
