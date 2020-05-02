@@ -22,7 +22,6 @@ import {
   MDBFormInline,
   MDBAnimation
 } from "mdbreact";
-import "./Login.css";
 import { login } from '../store/actions/authActions'
 const mapStateToProps = (state) => {
   return {

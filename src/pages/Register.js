@@ -24,7 +24,6 @@ import {
     MDBCardBody,
     MDBFormInline
   } from 'mdbreact';
-import "./Login.css";
 import { register } from '../store/actions/authActions'
 const mapStateToProps = (state) => {
   console.log(state)

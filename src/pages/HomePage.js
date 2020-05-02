@@ -12,7 +12,10 @@ import {
   MDBCardImage,
   MDBCardText,
   MDBAnimation,
-  MDBNavLink
+  MDBNavLink,
+  MDBMask,
+  MDBView,
+  MDBBtn
 } from 'mdbreact';
 import './HomePage.css';
 
@@ -22,13 +25,71 @@ class HomePage extends React.Component {
   render() {
     return (
       <>
-        <MDBEdgeHeader color=' darken-3' className='sectionPage' />
+    <MDBView>
+    <video className="video-intro" playsInline={true} autoPlay={true} muted={true} loop={true} >
+      <source src={require("../assets/Videos/animation.mp4")} type="video/mp4" />
+    </video>
+    <MDBMask className="d-flex justify-content-center align-items-center gradient2">
+      <MDBContainer className="px-md-3 px-sm-0">
+        <MDBRow>
+          <MDBCol md="12" className="mb-4 white-text text-center">
+            <h3 className="display-3 font-weight-bold mb-0 pt-md-5">
+              Creative Agency{" "}
+            </h3>
+            <hr className="hr-light my-4 w-75" />
+            <h4 className="subtext-header mt-2 mb-4">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              deleniti consequuntur nihil.
+            </h4>
+            <MDBBtn outline rounded color="white">
+              <MDBIcon icon="home" /> Visit us
+            </MDBBtn>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </MDBMask>
+  </MDBView>
+
+  
         <div className='mt-3 mb-5'>
-          <MDBFreeBird className='mt-3 mb-5'>
+          <MDBContainer fluid className='mt-3 mb-5'>
             <MDBRow>
               <MDBCol
                 md='12'
-                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientOdd' style={{height:"700px"}}
+                className='mx-0 float-none dark z-depth-1 my-5 py-0 px-0 SectionGradientOdd' style={{height:"72vh"}}>
+                <MDBView className="h-100" style={{height:"100%"}}>
+                  <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img1.jpg")})` }}></div>
+                  <MDBMask overlay="black-strong" style={{height:"100%"}}  className="d-flex justify-content-center align-items-center gradient">
+                  <MDBContainer>
+                  <MDBRow>
+                  <MDBAnimation
+                  type="fadeInLeft"
+                  delay=".3s"
+                  className="white-text text-center text-md-left d-none d-md-block col-md-6 mt-xl-5 mb-5"
+                >
+ <h1 className="h1-responsive font-weight-bold">
+                    Sign in right now!
+                  </h1>
+
+                </MDBAnimation>
+               < MDBCol md="6" xl="5" className="mb-4">
+                  <MDBAnimation type="fadeInRight" delay=".3s">
+
+                  </MDBAnimation>
+                  </ MDBCol>
+                  </MDBRow>
+                    </MDBContainer>
+                  </MDBMask>
+                </MDBView>
+               
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
+          <MDBContainer fluid className='mt-3 mb-5'>
+            <MDBRow>
+              <MDBCol
+                md='12'
+                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientOdd' style={{height:"72vh"}}
               >
                 <MDBCardBody className='text-center'>
                   
@@ -39,12 +100,12 @@ class HomePage extends React.Component {
                 </MDBCardBody>
               </MDBCol>
             </MDBRow>
-          </MDBFreeBird>
-          <MDBFreeBird className='mt-3 mb-5'>
+          </MDBContainer>
+          <MDBContainer fluid className='mt-3 mb-5'>
             <MDBRow>
               <MDBCol
                 md='12'
-                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientEven' style={{height:"700px"}}
+                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientOdd' style={{height:"72vh"}}
               >
                 <MDBCardBody className='text-center'>
                   
@@ -55,12 +116,12 @@ class HomePage extends React.Component {
                 </MDBCardBody>
               </MDBCol>
             </MDBRow>
-          </MDBFreeBird>
-          <MDBFreeBird className='mt-3 mb-5 '>
+          </MDBContainer>
+          <MDBContainer fluid className='mt-3 mb-5'>
             <MDBRow>
               <MDBCol
                 md='12'
-                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientOdd' style={{height:"700px"}}
+                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientOdd' style={{height:"72vh"}}
               >
                 <MDBCardBody className='text-center'>
                   
@@ -71,23 +132,7 @@ class HomePage extends React.Component {
                 </MDBCardBody>
               </MDBCol>
             </MDBRow>
-          </MDBFreeBird>
-          <MDBFreeBird className='mt-3 mb-5'>
-            <MDBRow>
-              <MDBCol
-                md='12'
-                className='mx-auto float-none dark z-depth-1 my-5 py-3 px-2 SectionGradientEven' style={{height:"700px"}}
-              >
-                <MDBCardBody className='text-center'>
-                  
-                  <MDBRow />
-                  <MDBRow className='d-flex flex-row justify-content-center row'>
-                   
-                  </MDBRow>
-                </MDBCardBody>
-              </MDBCol>
-            </MDBRow>
-          </MDBFreeBird>
+          </MDBContainer>
           {/*
           <MDBContainer>
             <MDBRow>
