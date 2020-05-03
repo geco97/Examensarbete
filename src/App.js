@@ -76,17 +76,18 @@ class App extends Component {
       user=(!isEmpty(sessionStorage.getItem('jwt')))?JSON.parse(localStorage.getItem("User")):"";
     }  
     console.log(isLoged)
+    let NavColor=(collapseID==="mainNavbarCollapse")?"rgb(45,37,64)":"transparent";
     return (
       <Router>
         <div className='flyout'>
-          <MDBNavbar dark expand='md' fixed='top' scrolling>
+          <MDBNavbar dark expand='md' fixed='top' scrolling style={{backgroundColor:NavColor}}>
             <MDBNavbarBrand href='/' className='py-0 font-weight-bold'>
-            <img  className=" size-40 text-white" src={require("./assets/Logo.PNG")} />
+            <img  className=" size-10 text-white" width="125px" src={require("./assets/Logo.PNG")} />
             </MDBNavbarBrand>
             <MDBNavbarToggler
               onClick={this.toggleCollapse('mainNavbarCollapse')}
             />
-            <MDBCollapse id='mainNavbarCollapse' isOpen={collapseID} navbar>
+            <MDBCollapse id='mainNavbarCollapse' isOpen={collapseID}  navbar>
               <MDBNavbarNav right>
                 <MDBNavItem>
                   <MDBNavLink
@@ -122,6 +123,15 @@ class App extends Component {
                     onClick={this.closeCollapse('mainNavbarCollapse')}
                   >
                   <strong>Section3</strong>
+                  </MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink
+                    exact
+                    to='/Salon'
+                    onClick={this.closeCollapse('mainNavbarCollapse')}
+                  >
+                  <strong>Salon</strong>
                   </MDBNavLink>
                 </MDBNavItem>
                 {

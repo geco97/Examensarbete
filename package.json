@@ -5,6 +5,7 @@
   "// If You want to install mdbreact from our GitLab repository, please replace '4.25.0' with gitURL provided here ->": "git+https://oauth2:<YOUR-TOKEN-GOES-HERE>@git.mdbootstrap.com/mdb/react/re-pro.git",
   "dependencies": {
     "axios": "^0.19.2",
+    "google-maps-react": "^2.0.6",
     "jwt-decode": "^2.2.0",
     "lodash.isempty": "^4.4.0",
     "mdbreact": "4.25.0",
@@ -13,6 +14,7 @@
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
+    "react-simple-maps": "^2.0.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },

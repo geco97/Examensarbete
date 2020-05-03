@@ -74,14 +74,15 @@ onSubmit = (e) => {
       />
     );
     return (
-      <div id="classicformpage">
+      <>
+      <div id="classicformpage" >
         
         <MDBView>
           <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
 ></div>
           <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
-            <MDBContainer>
-              <MDBRow>
+            <MDBContainer className="HJ-85">
+              <MDBRow className="h-100">
                 <MDBAnimation
                   type="fadeInLeft"
                   delay=".3s"
@@ -175,6 +176,7 @@ onSubmit = (e) => {
 
       
       </div>
+      </>
     );
   }
 }

@@ -69,7 +69,7 @@ class profile extends Component {
           <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
 ></div>
           <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
-            <MDBContainer>
+            <MDBContainer  className="HJ-85">
               <MDBRow>
                 <MDBAnimation
                   type="fadeInLeft"
