@@ -5,7 +5,7 @@ body {
   font-family: 'Lusitana', serif;
 }
 
-p,i,a,h1,h2,h3,h4,h5,h6,strong,input,label{
+p,i,a,h1,h2,h3,h4,h5,h6,strong,input,label,td,th{
   color: #bca47a;
 }
 a.border.nav-link.border-light.rounded.mr-1 {
@@ -79,7 +79,6 @@ a.border.nav-link.border-light.rounded.mr-1:hover {
 
 #classicformpage .card {
   background-color: rgb(36, 30, 51);
-
 }
 
 #classicformpage h6 {

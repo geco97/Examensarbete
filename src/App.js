@@ -134,7 +134,7 @@ class App extends Component {
                     
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default">
-                    <MDBDropdownItem href="#!" className="mx-1 px-1">My Profile</MDBDropdownItem>
+                    <MDBDropdownItem href="/profile" className="mx-1 px-1">My Profile</MDBDropdownItem>
                     <MDBDropdownItem href="#!" className="mx-1 px-1">My appointment</MDBDropdownItem>
                     <MDBDropdownItem onClick={this.logout} className="mx-1 px-1">Log out</MDBDropdownItem>
                   </MDBDropdownMenu>
