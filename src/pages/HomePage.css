@@ -82,12 +82,27 @@ a.border.nav-link.border-light.rounded.mr-1:hover {
   background-color: rgb(36, 30, 51);
 }
 
+element {
+}
+.text-white {
+    color: #fff !important;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.navbar-dark .navbar-brand {
+    filter: brightness(180%);
+}
 #classicformpage h6 {
   line-height: 1.7;
 }
 
 #classicformpage .navbar {
-  transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+  transition:  0.5s ease-in-out, padding 0.5s ease-in-out;
 }
 
 #classicformpage .top-nav-collapse {

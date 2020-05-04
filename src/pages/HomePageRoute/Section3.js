@@ -32,7 +32,7 @@ class Section3 extends React.Component {
               deleniti consequuntur nihil.
             </h4>
             <MDBBtn outline rounded color="white">
-              <MDBIcon icon="home" /> Visit us
+              <MDBIcon icon="home" /> TEst
             </MDBBtn>
           </MDBCol>
         </MDBRow>
