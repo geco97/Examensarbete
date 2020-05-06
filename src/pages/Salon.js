@@ -19,6 +19,7 @@ import {
   MDBAnimation
 } from "mdbreact";
 import MapChart from './SalonListComponents/MapChart'
+import SalonleftSide from './SalonListComponents/SalonleftSida'
 
 class Salon extends Component { 
     render() {
@@ -39,7 +40,9 @@ class Salon extends Component {
                      <MDBCard id="classic-card "  className="h-100"> 
                         <MDBCardBody >
                         <MDBRow className="h-100">
-                        <MDBCol md="4" xl="4" className="border-right"></MDBCol>
+                        <MDBCol md="4" xl="4" className="border-right">
+                          <SalonleftSide/>
+                        </MDBCol>
                         <MDBCol md="8" xl="8" className="border-left d-none d-md-block">
                             <MapChart/>
                         </MDBCol>
