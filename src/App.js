@@ -128,7 +128,7 @@ class App extends Component {
                 <MDBNavItem>
                   <MDBNavLink
                     exact
-                    to='/Salon'
+                    to='/Salons'
                     onClick={this.closeCollapse('mainNavbarCollapse')}
                   >
                   <strong>Salon</strong>

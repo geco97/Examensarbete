@@ -141,3 +141,16 @@ img {
   height: 85vh;
   margin-top: 100px;
 }
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.nav-link:hover{
+  color: #fff;
+}
+.View2{
+  height: 300px;
+}
+.View2 .mask {
+  overflow-y: hidden !important;
+}

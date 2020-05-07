@@ -8,6 +8,7 @@ import profile from './pages/profile';
 
 import HomePage from './pages/HomePage';
 import Salon from './pages/Salon';
+import SalonPage from './pages/SalonPage'
 
 
 
@@ -22,7 +23,8 @@ class Routes extends React.Component {
         <Route exact path='/Section2' component={HomePage} /> 
         <Route exact path='/Section3' component={HomePage} />       
         <Route exact path='/profile' component={profile} /> 
-        <Route exact path='/Salon' component={Salon} /> 
+        <Route exact path='/Salons' component={Salon} /> 
+        <Route exact path='/Salon/:id' component={SalonPage} /> 
         <Route
           render={function() {
             return <h1>Not Found</h1>;

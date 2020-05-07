@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
-import {
-    MDBNav,
-  MDBAlert,
-  MDBLink,
-  MDBNavItem,
-  MDBIcon,
+import {    
   MDBMask,
   MDBRow,
   MDBCol,
-  MDBTabContent,
-  MDBTabPane,
   MDBView,
   MDBContainer,
   MDBCard,
   MDBCardBody,
-  MDBInput,
-  MDBBtn,
-  MDBAnimation
+  MDBAnimation,
+  MDBTabContent,
+  MDBTabPane
 } from "mdbreact";
-import MapChart from './SalonListComponents/MapChart'
-import SalonleftSide from './SalonListComponents/SalonleftSida'
-
-class Salon extends Component { 
-    
+import LeftSide from './SalonPageComponent/LeftSide'
+import SalonAbout from './SalonPageComponent/SalonAbout'
+import SalonGallery from './SalonPageComponent/SalonGallery'
+class SalonPage extends Component {
+    state = {
+        activeItemPills: '1'
+      };
+      togglePills = tab => () => {
+        const { activePills } = this.state;
+        if (activePills !== tab) {
+          this.setState({
+            activeItemPills: tab
+          });
+        }
+      };
     render() {
         return (
             <div id="classicformpage">
@@ -41,11 +44,23 @@ class Salon extends Component {
                      <MDBCard id="classic-card "  className="h-100"> 
                         <MDBCardBody >
                         <MDBRow className="h-100">
-                        <MDBCol md="4" xl="4" className="border-right">
-                          <SalonleftSide/>
+                        <MDBCol md="2" xl="2" className="border-right">
+<LeftSide activeItemPills={this.state.activeItemPills} togglePills={this.togglePills} />
+
+                       
                         </MDBCol>
-                        <MDBCol md="8" xl="8" className="border-left d-none d-md-block">
-                            <MapChart/>
+                        <MDBCol md="10" xl="10" className="border-left d-none d-md-block">
+                        <MDBTabContent activeItem={this.state.activeItemPills}>
+                  <MDBTabPane tabId='1'>
+                      <SalonAbout/>
+                  </MDBTabPane>
+                  <MDBTabPane tabId='2'>
+                      <SalonGallery/>
+                  </MDBTabPane>
+                  <MDBTabPane tabId='3'>
+                      dads
+                  </MDBTabPane>
+                </MDBTabContent>
                         </MDBCol>
                         </MDBRow>
                         </MDBCardBody>
@@ -63,4 +78,4 @@ class Salon extends Component {
     }
 }
 
-export default Salon;
+export default SalonPage;
