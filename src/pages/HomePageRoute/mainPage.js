@@ -20,8 +20,11 @@ class mainPage extends React.Component {
   render() {
     return (
       <>
+      
+      <MDBAnimation type="fadeInUp" duration="500ms" delay=".2s">
+
         <MDBRow>
-          <MDBCol md="12" className="mb-4 white-text text-center">
+          <MDBCol md="12" className="mb-4 white-text text-center  " id="mainPage">
             <h3 className="display-3 font-weight-bold mb-0 pt-md-5">
               Creative Agency{" "}
             </h3>
@@ -35,6 +38,7 @@ class mainPage extends React.Component {
             </MDBBtn>
           </MDBCol>
         </MDBRow>
+        </MDBAnimation>
       </>
     );
   }

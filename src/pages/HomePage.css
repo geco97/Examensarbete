@@ -18,7 +18,12 @@ a.border.nav-link.border-light.rounded.mr-1:hover {
   /*color: #1C2331;*/
   color: #bca47a;
 }
-
+.is-current{
+  color: white;
+}
+section{
+  height: 500px;
+}
 .btn{
   color: #bca47a;
   /*color: #fff;*/

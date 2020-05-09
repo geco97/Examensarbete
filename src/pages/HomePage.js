@@ -22,7 +22,7 @@ import Section3 from './HomePageRoute/Section3';
 import mainPage from './HomePageRoute/mainPage';
 
 class HomePage extends React.Component {
-  scrollToTop = () => window.scrollTo(0, 0);
+  //scrollToTop = () => window.scrollTo(0, 0);
 
   render() {
     return (

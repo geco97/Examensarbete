@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper  } from 'google-maps-react';
 
+
 export class MapChart extends Component {
 
     state = {
@@ -11,9 +12,14 @@ export class MapChart extends Component {
     currentLocation: {
       lat: 0.0,
       lng: 0.0
-    }   
+    },
+    styles: require('./GoogleMapStyles.json')
   };
-
+  _mapLoaded=(mapProps, map)=> {
+    map.setOptions({
+       styles: this.state.Style
+    })
+ }
   componentDidMount=()=> {
     if (navigator && navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(pos => {
@@ -55,11 +61,15 @@ export class MapChart extends Component {
   };
 
   render() {
+    
     const coords = this.state.currentLocation;
     return (
       <>{
       ( this.state.isLoading === false )?
-      <Map google={this.props.google} zoom={14}  initialCenter={coords}>
+      
+      <Map google={this.props.google}  zoom={14} 
+      onReady={(mapProps, map) => this._mapLoaded(mapProps, map)}
+      style={{width: '94%',height: '94%'}} initialCenter={coords}>
         <Marker onClick={this.onMarkerClick} name={'current location'} />
         <InfoWindow
           marker={this.state.activeMarker}

@@ -20,7 +20,7 @@ class Section3 extends React.Component {
   render() {
     return (
       <>
- 
+ <MDBAnimation type="fadeInUp" duration="500ms" delay=".2s">
         <MDBRow>
           <MDBCol md="12" className="mb-4 white-text text-center">
             <h3 className="display-3 font-weight-bold mb-0 pt-md-5">
@@ -36,6 +36,7 @@ class Section3 extends React.Component {
             </MDBBtn>
           </MDBCol>
         </MDBRow>
+        </MDBAnimation>
       </>
     );
   }

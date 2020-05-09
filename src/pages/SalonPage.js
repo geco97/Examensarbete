@@ -11,9 +11,10 @@ import {
   MDBTabContent,
   MDBTabPane
 } from "mdbreact";
-import LeftSide from './SalonPageComponent/LeftSide'
+import LeftSide from './SalonPageComponent/leftSide'
 import SalonAbout from './SalonPageComponent/SalonAbout'
 import SalonGallery from './SalonPageComponent/SalonGallery'
+import SalonCalendar from './SalonPageComponent/SalonCalendar'
 class SalonPage extends Component {
     state = {
         activeItemPills: '1'
@@ -34,23 +35,20 @@ class SalonPage extends Component {
               <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
     ></div>
               <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
-                <MDBContainer fluid className="HJ-85">
+                <MDBContainer className="HJ-85">
                   <MDBRow className="h-100">
-                    <MDBAnimation
-                      type="fadeInUp"
-                      delay=".3s"
-                      className="white-text text-center text-md-left  col-md-12 mt-xl-12 mb-5"
-                    >
-                     <MDBCard id="classic-card "  className="h-100"> 
-                        <MDBCardBody >
-                        <MDBRow className="h-100">
-                        <MDBCol md="2" xl="2" className="border-right">
-<LeftSide activeItemPills={this.state.activeItemPills} togglePills={this.togglePills} />
-
-                       
-                        </MDBCol>
-                        <MDBCol md="10" xl="10" className="border-left d-none d-md-block">
-                        <MDBTabContent activeItem={this.state.activeItemPills}>
+                  <MDBAnimation
+                  type="fadeInLeft"
+                  delay=".3s"
+                  className="white-text text-center text-md-left d-none d-md-block col-md-4 mt-xl-4 mb-4"
+                >
+                  <LeftSide activeItemPills={this.state.activeItemPills} togglePills={this.togglePills} />
+                   </MDBAnimation>
+                   <MDBCol md="8" xl="8" className="mb-4 ">
+                   <MDBAnimation type="fadeInRight" className="h-100" delay=".3s">
+                   <MDBCard id="classic-card" className="h-100">
+                   <MDBCardBody  className="h-100">
+                   <MDBTabContent activeItem={this.state.activeItemPills}>
                   <MDBTabPane tabId='1'>
                       <SalonAbout/>
                   </MDBTabPane>
@@ -58,15 +56,15 @@ class SalonPage extends Component {
                       <SalonGallery/>
                   </MDBTabPane>
                   <MDBTabPane tabId='3'>
-                      dads
+                      <SalonCalendar/>
                   </MDBTabPane>
                 </MDBTabContent>
-                        </MDBCol>
-                        </MDBRow>
-                        </MDBCardBody>
-                    </MDBCard>
-                    
-                    </MDBAnimation>
+                     </MDBCardBody>
+                     </MDBCard>
+                  </MDBAnimation>
+                  </MDBCol>
+
+
     
                     
                     </MDBRow>

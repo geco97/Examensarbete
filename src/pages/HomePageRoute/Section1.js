@@ -1,5 +1,5 @@
 import React from 'react';
-import {
+import { 
   MDBEdgeHeader,
   MDBFreeBird,
   MDBContainer,
@@ -14,15 +14,16 @@ import {
   MDBBtn
 } from 'mdbreact';
 
+
 class Section1 extends React.Component {
   scrollToTop = () => window.scrollTo(0, 0);
 
   render() {
     return (
       <>
-    
+     <MDBAnimation type="fadeInUp" duration="500ms" delay=".2s">
         <MDBRow>
-          <MDBCol md="12" className="mb-4 white-text text-center">
+          <MDBCol md="12" className="mb-4 white-text text-center ">
             <h3 className="display-3 font-weight-bold mb-0 pt-md-5">
             Section1{" "}
             </h3>
@@ -36,6 +37,7 @@ class Section1 extends React.Component {
             </MDBBtn>
           </MDBCol>
         </MDBRow>
+        </MDBAnimation>
       </>
     );
   }
