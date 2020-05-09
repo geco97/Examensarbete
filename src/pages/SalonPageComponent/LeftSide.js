@@ -25,7 +25,7 @@ class LeftSide extends Component {
                   </MDBNavItem>
                   <MDBNavItem>
                     <MDBLink  active={activeItemPills === '3'} onClick={togglePills('3')} link>
-                      Calendar
+                       Reserve
                     </MDBLink>
                   </MDBNavItem>
                 </MDBNav> 

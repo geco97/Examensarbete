@@ -3,6 +3,7 @@ import {MDBRow,MDBCol,MDBBtn,MDBIcon } from 'mdbreact';
 import SalonList from './SalonList'
 class SalonleftSida extends Component {
     render() {
+      const { salonArray,showinMap,ShowPopup } = this.props;
         return (
             <>
                 <MDBRow>
@@ -41,7 +42,9 @@ class SalonleftSida extends Component {
             </MDBCol>
             </MDBCol>
                     <MDBCol md='12'>
-                    <SalonList/>
+                    <SalonList salonArray={salonArray} showinMap={showinMap}
+                    ShowPopup={ShowPopup}
+                    />
                     </MDBCol>
                 </MDBRow>
             </>

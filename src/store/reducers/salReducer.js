@@ -15,11 +15,10 @@ const salReducer = (state = initialState, action) => {
             }
         case actiontypes.FETCH_ALL_SALONS:
             console.log('FETCH_ALL_SALONS')
-            console.log(action)
             return {
                 ...state,
                 Error: null,
-                salonList: action.salonList
+                salonList: action.Salons.salonList
             }
         default:
             return {

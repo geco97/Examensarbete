@@ -7,10 +7,9 @@ export const getAllSalons = () => dispatch => {
     })
     .then(res => res.json())
     .then(res => {
-        console.log(res)
         dispatch({
             type: actiontypes.FETCH_ALL_SALONS,
-            Salons: res.Salons
+            Salons: res
         })
     })
     .catch(() => {

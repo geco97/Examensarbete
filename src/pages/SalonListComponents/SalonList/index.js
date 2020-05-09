@@ -3,9 +3,16 @@ import SalonCell from './SalonCell'
 
 class index extends Component {
     render() {
+        const { salonArray ,showinMap,ShowPopup}= this.props;
         return (
             <div>
-                <SalonCell/>
+                {
+                    salonArray.map((Salon, i)=>                   
+                        <SalonCell Salon={Salon} showinMap={showinMap} ShowPopup={ShowPopup}/>
+                    )  
+                    
+                }
+                
             </div>
         );
     }
