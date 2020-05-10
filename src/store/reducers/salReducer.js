@@ -23,6 +23,7 @@ const salReducer = (state = initialState, action) => {
             //FETCH_THIS_SALON
             case actiontypes.FETCH_THIS_SALON:
                 console.log('FETCH_THIS_SALON')
+                console.log(action)
                 return {
                     ...state,
                     Error: null,

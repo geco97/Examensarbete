@@ -1,82 +1,95 @@
 import React, { Component } from 'react';
-import {MDBRow,MDBCol,MDBCarousel,MDBCarouselCaption,MDBCarouselInner,MDBCarouselItem,MDBView,MDBMask} from 'mdbreact';
+import {MDBRow,MDBCol,MDBTableBody,MDBTable,MDBBtn } from 'mdbreact';
+import isEmpty from 'lodash/isEmpty';
 class index extends Component {
+  
     render() {
+      const { currentSalon, isLoading } = this.props;
+      console.log(currentSalon)
         return (
             <MDBRow>
-                <MDBCol  md="12">
-                    <h2 className="text-center">Salon1</h2>
-                </MDBCol>
-                <MDBCol md="12">
-                <MDBCarousel
-          activeItem={1}
-          length={4}
-          showControls
-          showIndicators
-          className='z-depth-1'
-          slide
-        >
-          <MDBCarouselInner>
-            <MDBCarouselItem itemId='1'>
-              <MDBView className="View2">
-                <img
-                  className='d-block w-100'
-                  src='https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg'
-                  alt='First slide'
-                />
-                <MDBMask overlay='black-light' />
-              </MDBView>
-              <MDBCarouselCaption>
-                <h3 className='h3-responsive'>Light mask</h3>
-                <p>First text</p>
-              </MDBCarouselCaption>
-            </MDBCarouselItem>
-            <MDBCarouselItem itemId='2'>
-              <MDBView  className="View2">
-                <img
-                  className='d-block w-100'
-                  src='https://mdbootstrap.com/img/Photos/Slides/img%20(99).jpg'
-                  alt='Second slide'
-                />
-                <MDBMask overlay='black-strong' />
-              </MDBView>
-              <MDBCarouselCaption>
-                <h3 className='h3-responsive'>Strong mask</h3>
-                <p>Second text</p>
-              </MDBCarouselCaption>
-            </MDBCarouselItem>
-            <MDBCarouselItem itemId='3'>
-              <MDBView  className="View2">
-                <img
-                  className='d-block w-100'
-                  src='https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg'
-                  alt='Third slide'
-                />
-                <MDBMask overlay='black-slight' />
-              </MDBView>
-              <MDBCarouselCaption>
-                <h3 className='h3-responsive'>Slight mask</h3>
-                <p>Third text</p>
-              </MDBCarouselCaption>
-            </MDBCarouselItem>
-            <MDBCarouselItem itemId='4'>
-              <MDBView  className="View2">
-                <img
-                  className='d-block w-100'
-                  src='https://mdbootstrap.com/img/Photos/Slides/img%20%28143%29.jpg'
-                  alt="Mattonit's item"
-                />
-                <MDBMask overlay='black-light' />
-              </MDBView>
-              <MDBCarouselCaption>
-                <h3 className='h3-responsive'>Sopot Beach</h3>
-                <p>Taken june 21th by @mattonit</p>
-              </MDBCarouselCaption>
-            </MDBCarouselItem>
-          </MDBCarouselInner>
-        </MDBCarousel>
+              {
+                isLoading === true?
+                <div className="spinner-border text-primary" role="status"><span className="sr-only">Loading...</span> </div>
+                :
+                <>
+          <MDBCol  md="12">
+          <h2 className="text-center">{currentSalon.Name}</h2>
+      </MDBCol>
+      <MDBCol md="12" className="border-bottom">
+      <MDBRow>
+        <MDBCol md="8"><p>{
+          currentSalon.description
+        }</p></MDBCol>
+        <MDBCol md="4">
+          {
+            (isEmpty(currentSalon))?"":
+            <img 
+            width={"100%"}
+            src={require( "../../../assets/images/images"+currentSalon.Logo)}
+            className="img-fluid" alt="" />
+          }
+       
+        </MDBCol>
+      </MDBRow>
+      </MDBCol>
+      <MDBCol md="12" >
+      <MDBRow className="border-bottom">
+      <MDBCol md="6" className="my-2">
+      <MDBTable borderless>
+          <MDBTableBody>
+            <tr>
+              <td className="p-2">Website</td>
+              <td className="p-2">{ currentSalon.Website }</td>
+              </tr>
+              <tr>
+              <td className="p-2">Tele.</td>
+              <td className="p-2">{ currentSalon.Tele }</td>
+              </tr>
+              <tr>
+              <td className="p-2">Addres</td>
+        <td className="p-2">{ currentSalon.Adress } {currentSalon.PostOrt}</td>
+            </tr>
+          </MDBTableBody>
+      </MDBTable>
 
-                </MDBCol>
+      </MDBCol>
+        <MDBCol md="6" className="my-2">
+        <MDBTable borderless>
+          <MDBTableBody>
+            { isEmpty(currentSalon.Openschame)?"":
+               
+               currentSalon.Openschame.map((row)=>
+                <tr>
+                  <td className="p-2">{row[1]}</td>
+                  <td className="p-2">{row[2]}</td>
+                </tr>
+                )
+               
+            }
+            </MDBTableBody>
+            </MDBTable>
+        </MDBCol>
+        </MDBRow>
+        <MDBRow>
+          <MDBCol md="6">
+            {
+              isEmpty(currentSalon.Tags)?"":
+              currentSalon.Tags.map((tag)=>
+              <MDBBtn color="deep-purple" size="sm"> {tag}  </MDBBtn>
+              )
+            }
+          </MDBCol>
+          <MDBCol md="6">
+            <form>
+              
+            </form>
+          </MDBCol>
+        </MDBRow>
+      </MDBCol>
+      </>
+              }
+               
             </MDBRow>
         );
     }

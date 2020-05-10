@@ -35,7 +35,6 @@ class SalonPage extends Component {
       };
     componentDidMount = ()=> { 
       const { id } = this.props.match.params;
-     
         this.props.dispatch(getthisSalon(id))
         this.setState({
           CurrentSalon:this.props.CurrentSalon,
@@ -48,7 +47,6 @@ class SalonPage extends Component {
       const { authError, token,Error} = this.props;
       const { CurrentSalon,isLoading} = this.state
       if(isLoading === true){
-        this.props.dispatch(getthisSalon(id))
         if(!isEmpty(this.props.CurrentSalon)){
         this.setState({
           CurrentSalon:this.props.CurrentSalon,
@@ -56,6 +54,7 @@ class SalonPage extends Component {
        })
       }
       }
+      
         return (
             <div id="classicformpage">
         
@@ -83,10 +82,10 @@ class SalonPage extends Component {
                   (
                    <MDBTabContent activeItem={this.state.activeItemPills}>
                   <MDBTabPane tabId='1'>
-                      <SalonAbout/>
+                      <SalonAbout currentSalon={CurrentSalon} isLoading={isLoading}/>
                   </MDBTabPane>
                   <MDBTabPane tabId='2'>
-                      <SalonGallery/>
+                      <SalonGallery currentSalonGallery={CurrentSalon.images}  isLoading={isLoading}/>
                   </MDBTabPane>
                   <MDBTabPane tabId='3'>
                       <SalonCalendar/>
@@ -115,7 +114,7 @@ const mapStateToProps = (state) => {
   return {
       authError: state.profile.authError,
       token: state.profile.token,
-      CurrentSalon: state.salon.CurrentSalon,
+      CurrentSalon: state.salon.currentSalon,
       Error: state.salon.Error
   }
 }
