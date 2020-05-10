@@ -9,11 +9,28 @@ body {
 p,i,a,h1,h2,h3,h4,h5,h6,strong,input,label,td,th{
   color: #bca47a;
 }
+.badge-secondary{
+  color: #bca47a !important;
+}
 a.border.nav-link.border-light.rounded.mr-1 {
   /*color: #3F729B;*/
   color: #bca47a;
 }
-
+.go2197464838.selected {
+  background: inherit !important;
+}
+.go445362013{
+  z-index: 100 !important;
+}
+.go3433208811{
+  background: #241e33 !important; 
+}
+.go445362013 div{
+  background-color: #241e33;
+}
+.go2197464838:hover{
+  background: #241e33 !important;
+}
 a.border.nav-link.border-light.rounded.mr-1:hover {
   /*color: #1C2331;*/
   color: #bca47a;

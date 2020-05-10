@@ -1,48 +1,78 @@
 import React, { Component } from 'react';
-import {MDBRow,MDBCol,MDBBtn,MDBIcon } from 'mdbreact';
+import {MDBRow,MDBCol,MDBBtn,MDBIcon,MDBBadge } from 'mdbreact';
 import SalonList from './SalonList'
+import MultiSelect from "react-multi-select-component";
+import { MDBChipsInput } from 'mdbreact';
+import data from './searchdata.json'
 class SalonleftSida extends Component {
+  state={
+    selected:[],
+    selectedSalon:this.props.salonArray
+   }
+   setSelected=(selected)=>{
+    let selectedSalon=[];
+    const filterContact3 = [];
+      selectedSalon = this.state.selectedSalon.filter(item => {
+        console.log(item)
+        selected.map((selectIte)=>{
+          console.log(selectIte)
+          if(item.Name.toLowerCase() ===selectIte.value.toLowerCase() ){
+            filterContact3.push(item)
+          }
+          if(item.PostOrt.toLowerCase() ===selectIte.value.toLowerCase() ){
+            filterContact3.push(item)
+          }
+         
+        })
+    })
+    
+    console.log(selectedSalon)
+     this.setState({
+       selected:selected,
+       selectedSalon:filterContact3
+     })
+   }
+   removeThisselected=(selectItem)=>{
+      let selected = this.state.selected;
+      
+      const newlist = [].concat(selected) // Clone array with concat or slice(0)
+      newlist.splice(selectItem.value, 1);
+      if(newlist.length === 0){
+        this.setState({
+          selectedSalon:this.props.salonArray
+        })
+      }
+      this.setState({selected: newlist}); 
+   }
     render() {
+      const { selected,selectedSalon } = this.state;
+      const options = data;
       const { salonArray,showinMap,ShowPopup } = this.props;
+
         return (
-            <>
-                <MDBRow>
-                <MDBCol md='12' className="m-0 p-0 border-bottom">
-                    <MDBCol md='12'>
-                <div className='input-group md-form form-sm form-2 pl-0'>
-            <input
-              className='form-control my-0 py-1 red-border'
-              type='text'
-              placeholder='Search'
-              aria-label='Search'
-            />
-            </div>
+          <>
+          <MDBRow>
+            <MDBCol md='12' className="m-0 p-0 border-bottom">
+                    <MultiSelect
+        options={options}
+        value={selected}
+        onChange={this.setSelected}
+        labelledBy={"Select"}
+      />
             </MDBCol>
-            <MDBCol md='12'>
-            <div className='input-group md-form form-sm form-2 pl-0'>
-            <input
-              className='form-control my-0 py-1 '
-              type='text'
-              placeholder='City'
-              aria-label='City'
-            />
-            <div className='input-group-append'>
-             
-              <MDBBtn
-                      color='secondary'
-                      size='md'
-                      className='m-0 p-0 z-depth-0'
-                    > <span className='input-group-text border-0 bg-transparent' id='basic-text1'>
-                       <MDBIcon icon='search'  />
-                       </span>
-                    </MDBBtn>
-               
-             
-            </div></div>
-            </MDBCol>
+            <MDBCol md='12' className="m-0 p-10 border-bottom">
+              {
+                selected.map((n)=>
+                <MDBBadge color="light"
+                className="p-2 m-1"
+                style={{color:"#bca47a !important"}}
+                onClick={(event)=>{this.removeThisselected(n)}}
+                >{ n.label }</MDBBadge>
+                )
+              }
             </MDBCol>
                     <MDBCol md='12'>
-                    <SalonList salonArray={salonArray} showinMap={showinMap}
+                    <SalonList salonArray={selectedSalon} showinMap={showinMap}
                     ShowPopup={ShowPopup}
                     />
                     </MDBCol>

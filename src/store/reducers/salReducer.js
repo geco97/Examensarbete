@@ -20,6 +20,14 @@ const salReducer = (state = initialState, action) => {
                 Error: null,
                 salonList: action.Salons.salonList
             }
+            //FETCH_THIS_SALON
+            case actiontypes.FETCH_THIS_SALON:
+                console.log('FETCH_THIS_SALON')
+                return {
+                    ...state,
+                    Error: null,
+                    currentSalon: action.Salon
+                }
         default:
             return {
                 ...state

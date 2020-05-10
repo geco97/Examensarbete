@@ -60,7 +60,6 @@ class Salon extends Component {
       })
     }
     closePopup = () =>{
-      console.log("false")
       this.setState({
         showPopUp:false,
         ChoosenSalon:""

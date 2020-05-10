@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {MDBRow,MDBCol,MDBBtn,MDBIcon,MDBMedia,MDBBtnGroup} from 'mdbreact';
-
+import {Link} from 'react-router-dom'
 class index extends Component {
 
     render() {
@@ -9,13 +9,20 @@ class index extends Component {
             <MDBRow>
                 <MDBCol md='12' className="p-1 my-1" >
                 <MDBMedia className="p-1 border" style={{ maxWidth: '800px' }}>
-          <MDBMedia left middle href={`/Salon/`+ Salon.id}>
+          <MDBMedia left middle >
+            <Link to={{
+              pathname:`/Salon/`+ Salon.id,
+              aboutProps:{
+               CurrnetSalon:  Salon
+              }
+            }} >
             <MDBMedia
               object
               width={"100px"}
               src={require("../../../../assets/images/images"+Salon.Logo)}
               alt=''
             />
+            </Link>
           </MDBMedia>
           <MDBMedia body>
             <MDBMedia heading>{Salon.Name}</MDBMedia>

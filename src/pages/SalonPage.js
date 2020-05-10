@@ -15,9 +15,15 @@ import LeftSide from './SalonPageComponent/leftSide'
 import SalonAbout from './SalonPageComponent/SalonAbout'
 import SalonGallery from './SalonPageComponent/SalonGallery'
 import SalonCalendar from './SalonPageComponent/SalonCalendar'
+import { connect } from 'react-redux'
+import isEmpty from 'lodash.isempty';
+import { getthisSalon } from '../store/actions/SalonActions'
+
 class SalonPage extends Component {
     state = {
-        activeItemPills: '1'
+        activeItemPills: '1',
+        CurrentSalon:[],
+        isLaoding:true
       };
       togglePills = tab => () => {
         const { activePills } = this.state;
@@ -27,7 +33,29 @@ class SalonPage extends Component {
           });
         }
       };
+    componentDidMount = ()=> { 
+      const { id } = this.props.match.params;
+     
+        this.props.dispatch(getthisSalon(id))
+        this.setState({
+          CurrentSalon:this.props.CurrentSalon,
+          isLoading: isEmpty(this.props.CurrentSalon)?true:false
+       })
+           
+    }
     render() {
+      const { id } = this.props.match.params;
+      const { authError, token,Error} = this.props;
+      const { CurrentSalon,isLoading} = this.state
+      if(isLoading === true){
+        this.props.dispatch(getthisSalon(id))
+        if(!isEmpty(this.props.CurrentSalon)){
+        this.setState({
+          CurrentSalon:this.props.CurrentSalon,
+          isLoading: isEmpty(this.props.CurrentSalon)?true:false
+       })
+      }
+      }
         return (
             <div id="classicformpage">
         
@@ -48,6 +76,11 @@ class SalonPage extends Component {
                    <MDBAnimation type="fadeInRight" className="h-100" delay=".3s">
                    <MDBCard id="classic-card" className="h-100">
                    <MDBCardBody  className="h-100">
+                   {
+                    isLoading===true?
+                    <div className="spinner-border text-primary" role="status"><span className="sr-only">Loading...</span> </div>
+                    :
+                  (
                    <MDBTabContent activeItem={this.state.activeItemPills}>
                   <MDBTabPane tabId='1'>
                       <SalonAbout/>
@@ -59,6 +92,9 @@ class SalonPage extends Component {
                       <SalonCalendar/>
                   </MDBTabPane>
                 </MDBTabContent>
+                )
+                }
+
                      </MDBCardBody>
                      </MDBCard>
                   </MDBAnimation>
@@ -75,5 +111,18 @@ class SalonPage extends Component {
         );
     }
 }
-
-export default SalonPage;
+const mapStateToProps = (state) => {
+  return {
+      authError: state.profile.authError,
+      token: state.profile.token,
+      CurrentSalon: state.salon.CurrentSalon,
+      Error: state.salon.Error
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getthisSalon: (id) => dispatch(getthisSalon(id)),
+    dispatch
+  }
+}
+export default connect(mapStateToProps)(SalonPage);

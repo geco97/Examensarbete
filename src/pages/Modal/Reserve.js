@@ -22,14 +22,13 @@ componentDidMount = ()=> {
    
 }
 render() {
-    console.log("sdf",this.props)
     const isOpen = this.props.showmodal;
   return (
     <MDBContainer>
       <MDBModal isOpen={isOpen} toggle={this.props.closePopup}>
         <MDBModalHeader toggle={this.props.closePopup} style={{ backgroundColor:"rgb(36, 30, 51)" }}>Reserve</MDBModalHeader>
         <MDBModalBody  style={{ backgroundColor:"rgb(36, 30, 51)" }}>
-          (...)
+          
         </MDBModalBody>
         <MDBModalFooter  style={{ backgroundColor:"rgb(36, 30, 51)" }}>
           <MDBBtn color="secondary" onClick={this.props.closePopup}>Close</MDBBtn>

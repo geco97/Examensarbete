@@ -18,3 +18,20 @@ export const getAllSalons = () => dispatch => {
         })       
     }) 
 }
+export const getthisSalon = (id) => dispatch => {
+    fetch(`${apiurl}/get?id=`+id, {
+        method: 'GET'
+    })
+    .then(res => res.json())
+    .then(res => {
+        dispatch({
+            type: actiontypes.FETCH_THIS_SALON,
+            Salon: res
+        })
+    })
+    .catch(() => {
+        dispatch({
+            type: actiontypes.FETCH_FAILED
+        })       
+    }) 
+}
