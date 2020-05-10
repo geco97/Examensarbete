@@ -7,14 +7,38 @@ import {
   MDBCollapse,
   MDBNavItem,
   MDBFooter,
-  MDBNavLink
+  MDBNavLink,
+  MDBDropdownItem,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBIcon,
+  MDBDropdownMenu,
+  MDBBtn
 } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './Routes';
+import { connect } from 'react-redux'
+import { logout } from './store/actions/authActions'
+import isEmpty from 'lodash/isEmpty';
+
+const mapStateToProps = (state) => {
+  return {
+      user: state.profile.user,
+      token: state.profile.token
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+      logout: () => dispatch(logout()),
+      dispatch
+  }
+}
 
 class App extends Component {
   state = {
-    collapseID: ''
+    collapseID: '',
+    isLoged:(!isEmpty(this.props.token) || !isEmpty(sessionStorage.getItem('jwt'))),
+    user:""
   };
 
   toggleCollapse = collapseID => () =>
@@ -27,7 +51,13 @@ class App extends Component {
     window.scrollTo(0, 0);
     collapseID === collID && this.setState({ collapseID: '' });
   };
-
+  logout = (e) => {
+    this.props.logout()
+    this.setState({
+      isLoged:false,
+      user:""
+    })
+  }
   render() {
     const overlay = (
       <div
@@ -37,19 +67,29 @@ class App extends Component {
       />
     );
 
-    const { collapseID } = this.state;
+    let { collapseID,isLoged,user } = this.state;
+    const { token } = this.props;
+    isLoged=(!isEmpty(token) || !isEmpty(sessionStorage.getItem('jwt')))
+    
 
+    if(isLoged === true){
+      user=(!isEmpty(sessionStorage.getItem('jwt')))?JSON.parse(localStorage.getItem("User")):"";
+    }  
+    console.log(isLoged)
+    let NavColor=(collapseID==="mainNavbarCollapse")?"rgb(45,37,64)":"transparent";
     return (
       <Router>
         <div className='flyout'>
-          <MDBNavbar dark expand='md' fixed='top' scrolling>
+          <MDBNavbar dark expand='md' fixed='top' scrolling style={{backgroundColor:NavColor}}>
             <MDBNavbarBrand href='/' className='py-0 font-weight-bold'>
-            <img  className=" size-40 text-white" src={require("./assets/logo.png")} />
+
+            <img  className=" size-10 text-white" width="125px" src={require("./assets/Logo.PNG")} />
+
             </MDBNavbarBrand>
             <MDBNavbarToggler
               onClick={this.toggleCollapse('mainNavbarCollapse')}
             />
-            <MDBCollapse id='mainNavbarCollapse' isOpen={collapseID} navbar>
+            <MDBCollapse id='mainNavbarCollapse' isOpen={collapseID}  navbar>
               <MDBNavbarNav right>
                 <MDBNavItem>
                   <MDBNavLink
@@ -57,10 +97,64 @@ class App extends Component {
                     to='/'
                     onClick={this.closeCollapse('mainNavbarCollapse')}
                   >
-                    <strong>Home</strong>
+                  <strong>Home</strong>
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
+                  <MDBNavLink
+                    exact
+                    to='/Section1'
+                    onClick={this.closeCollapse('mainNavbarCollapse')}
+                  >
+                  <strong>Section1</strong>
+                  </MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink
+                    exact
+                    to='/Section2'
+                    onClick={this.closeCollapse('mainNavbarCollapse')}
+                  >
+                  <strong>Section2</strong>
+                  </MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink
+                    exact
+                    to='/Section3'
+                    onClick={this.closeCollapse('mainNavbarCollapse')}
+                  >
+                  <strong>Section3</strong>
+                  </MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink
+                    exact
+                    to='/Salons'
+                    onClick={this.closeCollapse('mainNavbarCollapse')}
+                  >
+                  <strong>Salon</strong>
+                  </MDBNavLink>
+                </MDBNavItem>
+                {
+                (isLoged)?
+                <MDBNavItem style={{border: "1px solid #fff"}} className="px-2 mx-2">
+                <MDBDropdown >
+                  <MDBDropdownToggle nav caret>
+                  <strong> {user.firstname} {user.lastname} </strong> <MDBIcon icon="user" />
+                                     
+                    
+                  </MDBDropdownToggle>
+                  <MDBDropdownMenu className="dropdown-default">
+                    <MDBDropdownItem href="/profile" className="mx-1 px-1">My Profile</MDBDropdownItem>
+                    <MDBDropdownItem href="#!" className="mx-1 px-1">My appointment</MDBDropdownItem>
+                    <MDBDropdownItem onClick={this.logout} className="mx-1 px-1">Log out</MDBDropdownItem>
+                  </MDBDropdownMenu>
+                </MDBDropdown>
+              </MDBNavItem>
+                :
+                <>
+                <MDBNavItem >
                   <MDBNavLink
                     exact
                     to='/Login'
@@ -78,16 +172,9 @@ class App extends Component {
                     <strong>Register</strong>
                   </MDBNavLink>
                 </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    exact
-                    to='/Register'
-                    onClick={this.closeCollapse('mainNavbarCollapse')}
-                  >
-                    <strong>Register</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-               
+                </>
+                }
+       
               </MDBNavbarNav>
             </MDBCollapse>
           </MDBNavbar>
@@ -104,5 +191,4 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App)

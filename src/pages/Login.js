@@ -61,7 +61,7 @@ onSubmit = (e) => {
     this.props.login(this.state.cred)
 }
   render() {
-     const { authError, token } = this.props;
+   const { authError, token } = this.props;
         if(token || sessionStorage.getItem('jwt')){return <Redirect to='/' />}
         var authErrorClass;
         if (!authError ) {
@@ -74,14 +74,15 @@ onSubmit = (e) => {
       />
     );
     return (
-      <div id="classicformpage">
+      <>
+      <div id="classicformpage" >
         
         <MDBView>
           <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
 ></div>
           <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
-            <MDBContainer>
-              <MDBRow>
+            <MDBContainer className="HJ-85">
+              <MDBRow className="h-100">
                 <MDBAnimation
                   type="fadeInLeft"
                   delay=".3s"
@@ -128,7 +129,7 @@ onSubmit = (e) => {
                   <MDBAlert color="danger" className={authErrorClass}>
                   { authError}
                  </MDBAlert>
-                    <MDBBtn disabled={!this.validateForm()} onClick={this.onSubmit} onChange={this.onChange} color="deep-purple">Login</MDBBtn>
+                    <MDBBtn disabled={!this.validateForm()} onClick={this.onSubmit} onChange={this.onChange} color="indigo">Login</MDBBtn>
                     <Link to="/Register" className="btn btn-dark" >Register</Link>
               
                           <hr className="hr-light" />
@@ -175,6 +176,7 @@ onSubmit = (e) => {
 
       
       </div>
+      </>
     );
   }
 }

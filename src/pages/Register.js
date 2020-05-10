@@ -97,8 +97,8 @@ class Register extends Component {
           <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
           
 
-            <MDBContainer>
-              <MDBRow>
+          <MDBContainer  className="HJ-85">
+              <MDBRow className="h-100">
                 <MDBAnimation
                   type="fadeInLeft"
                   delay=".3s"
@@ -297,7 +297,7 @@ class Register extends Component {
                         <MDBAlert color={authErrorClass} className={authErrorShow}>
                       { massage}
                      </MDBAlert>
-                    <MDBBtn disabled={!this.validateForm()} nClick={this.onSubmit} onChange={this.onChange} color="deep-purple">Register</MDBBtn>
+                    <MDBBtn disabled={!this.validateForm()} onClick={this.onSubmit} onChange={this.onChange} color="indigo">Register</MDBBtn>
                     <Link to="/Login" className="btn btn-dark" >Login</Link>
               
                         
