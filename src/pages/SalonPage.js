@@ -11,7 +11,7 @@ import {
   MDBTabContent,
   MDBTabPane
 } from "mdbreact";
-import LeftSide from './SalonPageComponent/leftSide'
+import LeftSide from './SalonPageComponent/LeftSide'
 import SalonAbout from './SalonPageComponent/SalonAbout'
 import SalonGallery from './SalonPageComponent/SalonGallery'
 import SalonCalendar from './SalonPageComponent/SalonCalendar'
