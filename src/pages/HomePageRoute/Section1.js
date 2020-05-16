@@ -13,7 +13,7 @@ import {
   MDBCard,
   MDBBtn
 } from 'mdbreact';
-
+import Section1Cards from "./Section1Cards/index"
 
 class Section1 extends React.Component {
   scrollToTop = () => window.scrollTo(0, 0);
@@ -27,14 +27,11 @@ class Section1 extends React.Component {
           <MDBCardBody  className="h-100">
             <MDBMask className="p-4 gradient2 " style={{ overflow:"hidden"}}>
             <MDBCol md="12" className="mb-4 white-text text-center  " id="mainPage">
-            <h3 className="display-3 font-weight-bold mb-0 pt-md-5">
-            Section1{" "}
+            <h3 className=" font-weight-bold mb-0 pt-md-5">
+            Our <span className="HomePageSectionNfont">Salons</span>
             </h3>
-            <hr className="hr-light my-4 w-75" />
-            <h4 className="subtext-header mt-2 mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit
-              deleniti consequuntur nihil.
-            </h4>
+            <hr className="my-4 w-75" />
+           <Section1Cards />
             <MDBBtn outline rounded color="white">
               <MDBIcon icon="home" /> Visit us
             </MDBBtn>

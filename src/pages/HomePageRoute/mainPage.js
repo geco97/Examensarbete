@@ -31,9 +31,8 @@ class mainPage extends React.Component {
             width="300px" src={require("../../assets/Logo.PNG")} />
             </h3>
             <hr className=" my-4 w-75" />
-            <h4 className="subtext-header mt-2 mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit
-              deleniti consequuntur nihil.
+            <h4 className="subtext-header mt-2 mb-4" style={{letterSpacing: "5px"}}>
+              The most <span className="HomePageSectionNfont">Beautiful</span> thing you can be is <span className="HomePageSectionNfont">Yourself.</span>
             </h4>
            
             <MDBBtn  rounded color='secondary'>

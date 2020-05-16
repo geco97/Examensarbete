@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@300&family=Lusitana&display=swap');
 body {
   background: rgb(45,37,64);
@@ -6,11 +6,22 @@ body {
   font-size: 1rem;
   
 }
+.HomePageSectionNfont{
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+}
+.img-thumbnail{
+  background-color: #bca47a;
+  border: 1px solid #bca47a;
+}
 p,i,a,h1,h2,h3,h4,h5,h6,strong,input,label,td,th{
   color: #bca47a;
 }
 .badge-secondary{
   color: #bca47a !important;
+}
+.NormalH{
+  height: unset  !important;
 }
 a.border.nav-link.border-light.rounded.mr-1 {
   /*color: #3F729B;*/
@@ -85,11 +96,24 @@ section{
 .md-form input:not([type]):focus:not([readonly]) + label, .md-form input[type="text"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="password"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="email"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="url"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="time"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="date"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="datetime"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="datetime-local"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="tel"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="number"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="search"]:not(.browser-default):focus:not([readonly]) + label, .md-form input[type="search-md"]:focus:not([readonly]) + label, .md-form textarea.md-textarea:focus:not([readonly]) + label{
   color:#bca47a;
 }
+
 #classicformpage .view {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 
+}
+.NormalH1{
+  height: 250px;
+  display: grid;
+  align-items: center;
+  background: transparent;
+}
+.huerotate2{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: opacity(65%)  contrast(140%) ;
 }
 .huerotate {
   height: 100%;
