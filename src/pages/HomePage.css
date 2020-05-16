@@ -103,9 +103,6 @@ section{
 #classicformpage .card {
   background-color: rgb(36, 30, 51);
 }
-
-element {
-}
 .text-white {
     color: #fff !important;
 }
@@ -157,11 +154,18 @@ img {
   background: -moz-linear-gradient(135deg, rgb(28, 0, 100) 0%, rgb(26, 0, 34) 70%);
   background: -webkit-linear-gradient(135deg, rgb(28, 0, 100) 0%, rgb(26, 0, 34) 70%);
   background: linear-gradient(135deg, rgb(28, 0, 100) 0%, rgb(26, 0, 34) 70%);
-  opacity: 0.65;
+  opacity: 0.90;
 }
 .HJ-85{
   height: 85vh;
   margin-top: 100px;
+}
+.HJ-70{
+  height: 70vh;
+  margin-top: 100px;
+}
+hr{
+  border-top:2px solid #bdb1a1
 }
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;

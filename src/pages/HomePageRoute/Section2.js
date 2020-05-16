@@ -10,7 +10,7 @@ import {
   MDBAnimation,
   MDBNavLink,
   MDBMask,
-  MDBView,
+  MDBCard,
   MDBBtn
 } from 'mdbreact';
 
@@ -20,13 +20,16 @@ class Section2 extends React.Component {
   render() {
     return (
       <>
-      <MDBAnimation type="fadeInUp" duration="500ms" delay=".2s">
-        <MDBRow>
-          <MDBCol md="12" className="mb-4 white-text text-center " >
+       <MDBRow>
+        <MDBCol md="12" xl="12" className="mb-4 HJ-70">
+       <MDBCard id="classic-card" className="h-100">
+          <MDBCardBody  className="h-100">
+            <MDBMask className="p-4 gradient2 " style={{ overflow:"hidden"}}>
+            <MDBCol md="12" className="mb-4 white-text text-center  " id="mainPage">
             <h3 className="display-3 font-weight-bold mb-0 pt-md-5">
             Section2{" "}
             </h3>
-            <hr className="hr-light my-4 w-75" />
+            <hr className=" my-4 w-75" />
             <h4 className="subtext-header mt-2 mb-4">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit
               deleniti consequuntur nihil.
@@ -35,8 +38,12 @@ class Section2 extends React.Component {
               <MDBIcon icon="home" /> Visit us
             </MDBBtn>
           </MDBCol>
+            </MDBMask>
+          </MDBCardBody>
+        </MDBCard>
+        </MDBCol>         
         </MDBRow>
-        </MDBAnimation>
+      
       </>
     );
   }
