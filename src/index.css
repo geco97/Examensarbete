@@ -11,13 +11,13 @@
 
 .home-feature-box span {
 	display: block;
-	color:#111;
+	color:#bca47a;
 	font-weight:bold;
 	margin-top:1.5rem;
 }
 
 .example-components-list li > a {
-  color: #495057;
+  color: #bca47a;
 }
 
 .example-components-list li:last-child > a {
@@ -25,6 +25,6 @@
 }
 
 .example-components-list li > a .fa {
-	color:rgba(0,0,0,.35);
+	color:#bca47a;
 	float:right;
 }

@@ -44,13 +44,21 @@ const authReducer = (state = initialState, action) => {
                 }   
 
         case actiontypes.LOGIN_SUCCESS:
+            console.log('LOGIN_SUCCESS')
             return {
                 ...state,
-                user: action.user,
-                loggedIn: action.loggedIn,
-                token: action.payload
+                token: action.payload.token,
+                user: action.payload.user,
+                loggedIn: (action.payload.user)?true:false                
             }
-
+        case actiontypes.LOGOUT_SUCCESS:
+                console.log('LOGOUT_SUCCESS')
+                return {
+                    ...state,
+                    token: "",
+                    user: "",
+                    loggedIn: false                
+                }
         
 
         case actiontypes.GET_PROFILE_SUCCESS:

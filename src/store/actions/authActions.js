@@ -44,18 +44,15 @@ export const login = (credentials) => dispatch => {
     })
     .then(res => res.json())
     .then(res => {
-        console.log(res)
-        if(res.success) {
+        console.log("Login",res)
+        if(res.success) {  
+            sessionStorage.setItem('jwt', res.token)  
+            localStorage.setItem('User', JSON.stringify(res.user))           
             dispatch({
                 type: actiontypes.LOGIN_SUCCESS,
-                payload: res.token 
+                payload: res 
             })
             
-            sessionStorage.setItem('jwt', res.token)
-            sessionStorage.setItem('_uid', res.currentUser._id)
-            console.log(JSON.stringify(res.currentUser))
-            sessionStorage.setItem('user', JSON.stringify(res.currentUser))
-           
         } else {
             dispatch({
                 type: actiontypes.LOGIN_ERROR
@@ -77,7 +74,7 @@ export const logout = () => dispatch => {
     })
 
     sessionStorage.removeItem('jwt')
-    sessionStorage.removeItem('user')
+    localStorage.removeItem('User')
 
 }
 

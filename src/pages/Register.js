@@ -9,13 +9,36 @@ import {
     MDBBtn,
     MDBEdgeHeader,
     MDBAnimation,
-    MDBJumbotron,
     MDBAlert ,
-    MDBInputGroup
+    MDBInputGroup,
+    MDBJumbotron,
+    MDBNavbarNav,
+    MDBNavItem,
+    MDBNavLink,
+    MDBNavbarToggler,
+    MDBCollapse,
+    MDBMask,   
+    MDBIcon,
+    MDBView,
+    MDBCard,
+    MDBCardBody,
+    MDBFormInline
   } from 'mdbreact';
-  
 import { register } from '../store/actions/authActions'
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+      authError: state.profile.authError,
+      token: state.profile.token,
+     regsuccess: state.profile.regsuccess
+  }
+}
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+      register: (credentials) => dispatch(register(credentials))
+  }
+}
 class Register extends Component {
     constructor(props) {
         super(props)
@@ -67,59 +90,93 @@ class Register extends Component {
         }
 
         return (
-            <>
-            <MDBEdgeHeader color=' darken-3' className='sectionPage' />
-            <MDBAnimation type='zoomIn' duration='500ms'>
-              <MDBContainer>
-              <MDBRow>
-                <MDBCol md='12' className='mt-3 mx-auto'>
-                  <MDBJumbotron>
-                    <form>
-                      <p className='h5 text-center mb-4'>Register</p>
-                      <div className='grey-text'>
-                      <MDBRow>
-                            <MDBCol size="12" md='6' className='mt-3 mx-auto'>
-                            <MDBInput
+          <div id="classicformpage">
+            <MDBView>
+          <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img1.jpg")})` }}
+></div>
+          <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
+          
+
+          <MDBContainer  className="HJ-85">
+              <MDBRow className="h-100">
+                <MDBAnimation
+                  type="fadeInLeft"
+                  delay=".3s"
+                  className="white-text text-center text-md-left d-none d-md-block col-md-4 mt-xl-4 mb-5"
+                >
+                  <h1 className="h1-responsive font-weight-bold">
+                    Sign up right now!
+                  </h1>
+                  <hr className="hr-light" />
+                  <h6 className="mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Rem repellendus quasi fuga nesciunt dolorum nulla magnam
+                    veniam sapiente, fugiat! Commodi sequi non animi ea dolor
+                    molestiae, quisquam iste, maiores. Nulla.
+                  </h6>
+                
+                </MDBAnimation>
+
+                <MDBCol md="8" xl="8" className="mb-4">
+                  <MDBAnimation type="fadeInRight" delay=".3s">
+                    <MDBCard id="classic-card">
+                      <MDBCardBody >
+                        <h3 className="text-center">
+                          <MDBIcon icon="user" /> Sign up:
+                        </h3>
+                        <hr className="hr-light" />
+                        <MDBRow>
+                        <MDBCol md='6'>
+                       <MDBInput
                           label='Type your Firstname'
                           icon='user'
                           group
+                          size="sm"
                           type='Text'
                           validate
                           error='wrong'
+                          className="my-1"
+                          containerClass="m-0"
                           id="Firstname"
                           success='right'
                            onChange={this.onChange}
                            value={firstname}
                         />
                             </MDBCol>
-                            <MDBCol md='6' className='mt-3 mx-auto'>
+                            <MDBCol md='6'>
                             <MDBInput
                           label='Type your Lastname'
                           group
                           type='Text'
                           validate
+                          size="sm"
                           error='wrong'
+                          className="my-1"
+                          containerClass="m-0"
                           id="Lastname"
                           success='right'
                            onChange={this.onChange}
                            value={lastname}
                         />
-                            </MDBCol>
-                            <MDBCol md='12' className='mt-3 mx-auto'>
+                        </MDBCol>
+                        <MDBCol md='12'>
                             <MDBInput
                           label='Type your address'
                           group
                           icon='map-marker-alt'
                           type='text'
                           validate
+                          size="sm"
                           error='wrong'
+                          className="my-1"
+                          containerClass="m-0"
                           id="addressline"
                           success='right'
                            onChange={this.onChange}
                            value={addressline}
                         />
                             </MDBCol>
-                            <MDBCol md='4' className='mt-3 mx-auto'>
+                            <MDBCol md='4'>
                             <MDBInput
                           label='Type your zipcode'
                           group
@@ -127,12 +184,14 @@ class Register extends Component {
                           validate
                           error='wrong'
                           id="zipcode"
+                          className="my-1"
+                          containerClass="m-0"
                           success='right'
                            onChange={this.onChange}
                            value={zipcode}
                         />
                             </MDBCol>
-                            <MDBCol md='4' className='mt-3 mx-auto'>
+                            <MDBCol md='4'>
                             <MDBInput
                           label='Type your city'
                           group
@@ -140,31 +199,37 @@ class Register extends Component {
                           validate
                           error='wrong'
                           id="city"
+                          className="my-1"
+                          containerClass="m-0"
                           success='right'
                            onChange={this.onChange}
                            value={city}
                         />
                             </MDBCol>
-                            <MDBCol md='4' className='mt-3 mx-auto'>
+                            <MDBCol md='4'>
                             <MDBInput
                           label='Type your country'
                           group
                           type='text'
                           validate
                           error='wrong'
+                          className="my-1"
+                          containerClass="m-0"
                           id="country"
                           success='right'
                            onChange={this.onChange}
                            value={country}
                         />
                             </MDBCol>
-                            <MDBCol md='6' className='mt-3 mx-auto'>
+                            <MDBCol md='6'>
                             <MDBInput
                           label='Type your email'
                           icon='envelope'
                           group
                           type='email'
                           validate
+                          className="my-1"
+                          containerClass="m-0"
                           error='wrong'
                           id="email"
                           success='right'
@@ -172,12 +237,14 @@ class Register extends Component {
                            value={email}
                         />
                             </MDBCol>
-                            <MDBCol md='6' className='mt-3 mx-auto'>
+                            <MDBCol md='6' >
                             <MDBInput
                           label='Comfirm your email'
                           icon='envelope'
                           group
                           type='email'
+                          className="my-1"
+                          containerClass="m-0"
                           validate
                           error='wrong'
                           id="Confirmemail"
@@ -186,10 +253,12 @@ class Register extends Component {
                            value={email}
                         />
                             </MDBCol>
-                            <MDBCol md='6' className='mt-3 mx-auto'>
+                            <MDBCol md='6'>
                             <MDBInput
                           label='Type your password'
                           icon='lock'
+                          className="my-1"
+                          containerClass="m-0"
                           group
                           type='password'
                           validate
@@ -200,10 +269,12 @@ class Register extends Component {
                            value={password}
                         />
                             </MDBCol>
-                            <MDBCol md='6' className='mt-3 mx-auto'>
+                            <MDBCol md='6'>
                             <MDBInput
                           label='Comfirm your password'
                           icon='lock'
+                          className="my-1"
+                          containerClass="m-0"
                           group
                           type='password'
                           validate
@@ -214,55 +285,48 @@ class Register extends Component {
                            value={password}
                         />
                             </MDBCol>
-                            <MDBCol md='12' className='mt-3 mx-auto'>
-                            <MDBInputGroup
-          containerClassName="mb-3"
-          prepend={
-            <div className="input-group-text">
-              <MDBInput type="checkbox" id="termsaccept" validate value={termsaccept}/>
-              <label>Filled-in unchecked</label>
-            </div>
-           
-          }
-             />
-                           
-                            </MDBCol>
-                           
-                      </MDBRow>
-                       
-                      </div>
-                      <div className='text-center'>
-                      <MDBAlert color={authErrorClass} className={authErrorShow}>
+
+                        </MDBRow>
+                        <MDBCol md='12' className='mt-3 mx-auto'>
+                        <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="defaultUncheckedDisabled2" validate value={termsaccept}/>
+        <label class="custom-control-label" for="defaultUncheckedDisabled2">Filled-in unchecked</label>
+      </div>
+                        </MDBCol>
+                        <div className="text-center mt-4 ">
+                        <MDBAlert color={authErrorClass} className={authErrorShow}>
                       { massage}
                      </MDBAlert>
-                        <MDBBtn  onClick={this.onSubmit} onChange={this.onChange}>Register</MDBBtn>
-                        <Link to="/Login" className="btn btn-link">Login</Link>
-                      </div>
-                    </form>
-                  </MDBJumbotron>
+                    <MDBBtn disabled={!this.validateForm()} onClick={this.onSubmit} onChange={this.onChange} color="indigo">Register</MDBBtn>
+                    <Link to="/Login" className="btn btn-dark" >Login</Link>
+              
+                        
+                        </div>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBAnimation>
                 </MDBCol>
-                        </MDBRow>
-              </MDBContainer>
-            </MDBAnimation>
-          </>
+            <MDBCol md="12" className="text-center d-none d-md-block">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </MDBMask>
+        </MDBView>
+          </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    console.log(state)
-    return {
-        authError: state.profile.authError,
-        token: state.profile.token,
-       regsuccess: state.profile.regsuccess
-    }
-}
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        register: (credentials) => dispatch(register(credentials))
-    }
-}
 
 
 //export default (RegistrationForm)
