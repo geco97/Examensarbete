@@ -14,7 +14,7 @@ import {
   MDBBtn
 } from 'mdbreact';
 import isEmpty from 'lodash.isempty';
-class mainPage extends React.Component {
+class MainPage extends React.Component {
   scrollToTop = () => window.scrollTo(0, 0);
 
   render() {
@@ -60,4 +60,4 @@ class mainPage extends React.Component {
   }
 }
 
-export default mainPage;
+export default MainPage;
