@@ -44,7 +44,6 @@ class index extends Component {
 isInLogad === true?
 <MDBBtn active color='indigo' onClick={(event) => SaveAsFavorite(Salon)}><MDBIcon icon='star'  /> </MDBBtn>
 :
-
 <MDBBtn color="indigo"><Link to="/Login" color="secondary" ><MDBIcon icon='star'  /> </Link> </MDBBtn>
  
             }

@@ -16,16 +16,16 @@
         "Tags":["Barberare Mästare","Sprytanning","Hair Talk","Färgbehandlingar","Naglar"],
         "description": "Salongen har funnits sedan 1974 i Västerås city. Klippstugan är en salong med fokus på just din livsstil och alla generationer. Drop in på klippning erbjuds alla dagar i veckan men det går även strålande att boka tiden som passar just dig. Vi arbetar med de senaste trenderna inom färg, Barber och skönhet. Vi erbjuder inredning och produktshop där du finner märken som Kevin Murphy, Living Proof, Eleven, House Doctor, Madame Stoltz, Ib Laursen samt On Interiör." ,
         "images":[
-            [1,"/klipstugan/img (1).jpg"],
-            [2,"/klipstugan/img (2).jpg"],
-            [3,"/klipstugan/img (3).jpg"],
-            [4,"/klipstugan/img (4).jpg"],
-            [5,"/klipstugan/img (5).jpg"],
-            [6,"/klipstugan/img (6).jpg"],
-            [7,"/klipstugan/img (7).jpg"],
-            [8,"/klipstugan/img (8).jpg"],
-            [9,"/klipstugan/img (9).jpg"],
-            [10,"/klipstugan/img (10).jpg"]
+            ["/klipstugan/img (1).jpg"],
+            ["/klipstugan/img (2).jpg"],
+            ["/klipstugan/img (3).jpg"],
+            ["/klipstugan/img (4).jpg"],
+            ["/klipstugan/img (5).jpg"],
+            ["/klipstugan/img (6).jpg"],
+            ["/klipstugan/img (7).jpg"],
+            ["/klipstugan/img (8).jpg"],
+            ["/klipstugan/img (9).jpg"],
+            ["/klipstugan/img (10).jpg"]
         ],
         "coordinates":[59.610300,16.549010]
     },
@@ -46,16 +46,16 @@
     "Tags":["Frisörer","Nagelteknologer","Frans-stylister","Hudterapueter","Makeup-Artister","Skönhet"],
     "description": "Harmoniqs affärsidé är att erbjuda kunden en lyxig samt harmonisk upplevelse, av professionella terapeuter, vid besök. Starten blev i september 2007 då två butiker/salonger öppnades vid mimerporten i Västerås." ,
     "images":[
-        [1,"/harmoniq/img (1).npg"],
-        [2,"/harmoniq/img (2).jpg"],
-        [3,"/harmoniq/img (3).jpg"],
-        [4,"/harmoniq/img (4).jpg"],
-        [5,"/harmoniq/img (5).jpg"],
-        [6,"/harmoniq/img (6).jpg"],
-        [7,"/harmoniq/img (7).jpg"],
-        [8,"/harmoniq/img (8).jpg"],
-        [9,"/harmoniq/img (9).jpg"],
-        [10,"/harmoniq/img (1).jpg"]
+        ["/harmoniq/img (1).png"],
+        ["/harmoniq/img (2).jpg"],
+        ["/harmoniq/img (3).jpg"],
+        ["/harmoniq/img (4).jpg"],
+        ["/harmoniq/img (5).jpg"],
+        ["/harmoniq/img (6).jpg"],
+        ["/harmoniq/img (7).jpg"],
+        ["/harmoniq/img (8).jpg"],
+        ["/harmoniq/img (9).jpg"],
+        ["/harmoniq/img (1).jpg"]
     ],
     "coordinates":[59.612040,16.556810]
     },
@@ -76,12 +76,12 @@
         "Tags":["Sprytanning"],
         "description": "Vårt koncept är väldigt unikt då man får hyra hela relaxavdelnungen helt privat.Detta innebär att man är helt ensam med sitt sällskap. Relaxen äe perfekt för bland annat svensexa, möhippa, födelsedagsfest,AfterWork eller kärlekpaket med kärleken!. ",
         "images":[
-            [1,"/relaxlounge/img (1).jpg"],
-            [2,"/relaxlounge/img (2).jpg"],
-            [3,"/relaxlounge/img (3).jpg"],
-            [4,"/relaxlounge/img (4).jpg"],
-            [5,"/relaxlounge/img (5).jpg"],
-            [6,"/relaxlounge/img (6).jpg"]
+            ["/relaxlounge/img (1).jpg"],
+            ["/relaxlounge/img (2).jpg"],
+            ["/relaxlounge/img (3).jpg"],
+            ["/relaxlounge/img (4).jpg"],
+            ["/relaxlounge/img (5).jpg"],
+            ["/relaxlounge/img (6).jpg"]
         ],
         "coordinates":[59.607960,16.537190]
     },
@@ -101,15 +101,15 @@
     "Tags":["Medicinsk","Sprytanning","fotvård ","fotmassage","Naglar"],
     "description": "Ömhet i dina fötter orsakas av tryck, friktion eller sjukdom. När du åldras förändras ditt skelett och dina muskler. Hela din kropp blir skörare och svagare. Detta leder i många fall till problem med fötterna. Vilka skor du använder kan också påverka." ,
     "images":[
-        [1,"/fottVard/img (1).jpg"],
-        [2,"/fottVard/img (2).jpg"],
-        [3,"/fottVard/img (3).jpg"],
-        [4,"/fottVard/img (4).jpg"],
-        [5,"/fottVard/img (5).jpg"],
-        [6,"/fottVard/img (6).jpg"],
-        [7,"/fottVard/img (7).jpg"],
-        [8,"/fottVard/img (8).jpg"],
-        [9,"/fottVard/img (9).jpg"]
+        ["/fottVard/img (1).jpg"],
+        ["/fottVard/img (2).jpg"],
+        ["/fottVard/img (3).jpg"],
+        ["/fottVard/img (4).jpg"],
+        ["/fottVard/img (5).jpg"],
+        ["/fottVard/img (6).jpg"],
+        ["/fottVard/img (7).jpg"],
+        ["/fottVard/img (8).jpg"],
+        ["/fottVard/img (9).jpg"]
     ],
     "coordinates":[59.603930,16.561720]
     },
@@ -129,15 +129,15 @@
     "Tags":["Medicinsk","Sprytanning","fotvård ","fotmassage","Naglar"],
     "description": "Ömhet i dina fötter orsakas av tryck, friktion eller sjukdom. När du åldras förändras ditt skelett och dina muskler. Hela din kropp blir skörare och svagare. Detta leder i många fall till problem med fötterna. Vilka skor du använder kan också påverka." ,
     "images":[
-        [1,"/fottVard/img (1).jpg"],
-        [2,"/fottVard/img (2).jpg"],
-        [3,"/fottVard/img (3).jpg"],
-        [4,"/fottVard/img (4).jpg"],
-        [5,"/fottVard/img (5).jpg"],
-        [6,"/fottVard/img (6).jpg"],
-        [7,"/fottVard/img (7).jpg"],
-        [8,"/fottVard/img (8).jpg"],
-        [9,"/fottVard/img (9).jpg"]
+        ["/fottVard/img (1).jpg"],
+        ["/fottVard/img (2).jpg"],
+        ["/fottVard/img (3).jpg"],
+        ["/fottVard/img (4).jpg"],
+        ["/fottVard/img (5).jpg"],
+        ["/fottVard/img (6).jpg"],
+        ["/fottVard/img (7).jpg"],
+        ["/fottVard/img (8).jpg"],
+        ["/fottVard/img (9).jpg"]
     ],
     "coordinates":[59.603930,16.561720]
     }

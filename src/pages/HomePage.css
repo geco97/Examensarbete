@@ -49,6 +49,7 @@ a.border.nav-link.border-light.rounded.mr-1:hover {
 .is-current{
   color: white;
 }
+
 section{
   height: 500px;
 }
@@ -155,6 +156,17 @@ img {
 @media (max-width: 768px) {
   #classicformpage .navbar:not(.top-nav-collapse) {
     background: #424f95 !important;
+  }
+  section{
+    height: auto;
+  }
+  .HJ-85{
+    height: 95vh;
+    margin-top: 100px;
+  }
+  .HJ-70{
+    height: 90vh;
+    margin-top: 100px;
   }
 }
 

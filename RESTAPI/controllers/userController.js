@@ -129,23 +129,37 @@ exports.getUsers = function(req, res) {
 
 // exempel. localhost:3001/api/users/5ce515ce2af81f1484a0d88b
 exports.getUser = function(req, res) {
-
     User.findOne({ _id: req.params.id })              
-        .then((data) => res.status(200).json(data))
+        .then((data) => res.status(200).json({
+            message: 'Användaren  i databasen',
+            data: data
+        }))
         .catch((error) => res.status(500).json(error))
 
 }
 
 exports.updateUser = function(req, res) {
+    console.log(req.params.id)
     User.update({ _id: req.params.id }, req.body)
     .then((data) => {
         if(!data) { return res.status(404).end() }
+        const token = jwt.sign(
+            { id: req.body._id, email: req.body.email },
+            process.env.PRIVATE_SECRET_KEY,
+            { expiresIn: "1h" }
+        )
         return res.status(200).json({
             message: 'Användaren uppdateras i databasen',
-            data: data
+            data: data,
+             success: true,
+             token: token,
+             user:req.body,
+             id: req.body._id,
+             email: req.body.email
         })
     })
     .catch((error) => {
+        
         res.status(500).json({
             message: 'Användaren uppdaterades inte i databasen!',
             error: error

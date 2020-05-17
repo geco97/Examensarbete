@@ -8,8 +8,8 @@ route.post("/register", users.register);
 route.post("/login", users.login);
 
 // restricted routes
-route.get("/:id", authorization, users.getUser);        // Get specific user
-route.put("/:id", authorization, users.updateUser);     // Update specific user
+route.get("/get/:id", authorization, users.getUser);        // Get specific user
+route.put("/update/:id", authorization, users.updateUser);     // Update specific user
 
 
 

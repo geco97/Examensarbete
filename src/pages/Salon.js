@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch) => {
 class Salon extends Component { 
     state={
       isLoading: true,
-      salonList:"",
+      salonList:[],
       selectedSalon:"",
       showPopUp:false,
       ChoosenSalon:""
