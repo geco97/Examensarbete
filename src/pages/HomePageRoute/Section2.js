@@ -38,6 +38,10 @@ class Section2 extends React.Component {
             Section2{" "}
             </h3>
             <hr className=" my-4 w-75" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Rem repellendus quasi fuga nesciunt dolorum nulla magnam
+                    veniam <span className="HomePageSectionNfont">apiente, fugiat! Commodi sequi non animi ea dolor
+                    molestiae,</span> quisquam iste, maiores. Nulla.</p>
             <MDBBtn outline rounded color="white">
               <MDBIcon icon="home" /> Visit us
             </MDBBtn>
