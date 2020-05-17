@@ -92,9 +92,13 @@ class Register extends Component {
         return (
           <div id="classicformpage">
             <MDBView>
+               <video className="video-intro " playsInline={true}  autoPlay={true} muted={true} loop={true} >
+      <source src={require("../assets/Videos/animation.mp4")} type="video/mp4" />
+    </video>
+{/* 
           <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img1.jpg")})` }}
 ></div>
-          <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
+*/}          <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient2">
           
 
           <MDBContainer  className="HJ-85">
@@ -108,7 +112,7 @@ class Register extends Component {
                     Sign up right now!
                   </h1>
                   <hr className="hr-light" />
-                  <h6 className="mb-4">
+                  <h6 className="my-5">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Rem repellendus quasi fuga nesciunt dolorum nulla magnam
                     veniam sapiente, fugiat! Commodi sequi non animi ea dolor
@@ -117,7 +121,7 @@ class Register extends Component {
                 
                 </MDBAnimation>
 
-                <MDBCol md="8" xl="8" className="mb-4">
+                <MDBCol md="8" xl="8" className="my-5">
                   <MDBAnimation type="fadeInRight" delay=".3s">
                     <MDBCard id="classic-card">
                       <MDBCardBody >
@@ -298,8 +302,9 @@ class Register extends Component {
                       { massage}
                      </MDBAlert>
                     <MDBBtn disabled={!this.validateForm()} onClick={this.onSubmit} onChange={this.onChange} color="indigo">Register</MDBBtn>
-                    <Link to="/Login" className="btn btn-dark" >Login</Link>
-              
+                    <Link to="/Login" color="secondary" >
+                    <MDBBtn color="secondary">Login</MDBBtn>
+                      </Link>
                         
                         </div>
                       </MDBCardBody>

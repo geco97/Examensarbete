@@ -78,14 +78,9 @@ export const logout = () => dispatch => {
 
 }
 
-export const get = (_id,token) => dispatch => {
-    console.log(_id)
-    console.log(token)
-/*    dispatch({
-        type: actiontypes.GET_PROFILE_SUCCESS,
-        user: JSON.parse(sessionStorage.getItem('user'))
-    })
-    */
+export const get = (_id) => dispatch => {
+    const token = sessionStorage.getItem("jwt")
+
     fetch(`${apiurl}/get/${_id}`, {
         method: 'GET',
         headers: {
@@ -95,10 +90,9 @@ export const get = (_id,token) => dispatch => {
     })
     .then(res => res.json())
     .then(res => {
-        console.log(res)
         dispatch({
             type: actiontypes.GET_PROFILE_SUCCESS,
-            user: res.currentUser
+            user: res.data
         })
 
         sessionStorage.setItem('user', JSON.stringify(res.currentUser))
@@ -106,10 +100,10 @@ export const get = (_id,token) => dispatch => {
 
 }
 
-export const update = (user, jwt) => dispatch => {
- 
-    fetch(`${apiurl}/${user._id}`, {
-        method: 'PATCH',
+export const update = (user) => dispatch => {
+    const jwt = sessionStorage.getItem("jwt")
+    fetch(`${apiurl}/update/${user._id}`, {
+        method: 'PUT',
         headers: {
             'content-type': 'application/json',
             'authorization': 'bearer ' + jwt
@@ -118,12 +112,13 @@ export const update = (user, jwt) => dispatch => {
     })
     .then(res => res.json())
     .then(res => {
-        
-        sessionStorage.setItem('user', JSON.stringify(res.currentUser))
+        //sessionStorage.removeItem('jwt')
+     //   sessionStorage.setItem('jwt', JSON.stringify(res.token))
+        sessionStorage.setItem('user', JSON.stringify(res.user))
 
         dispatch({
             type: actiontypes.UPDATE_PROFILE_SUCCESS,
-            user: JSON.parse(sessionStorage.getItem('user'))
+            data: res
         })
 
         

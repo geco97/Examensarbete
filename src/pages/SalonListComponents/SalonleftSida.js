@@ -52,7 +52,7 @@ class SalonleftSida extends Component {
         return (
           <>
           <MDBRow>
-            <MDBCol md='12' className="m-0 p-0 border-bottom">
+            <MDBCol md='12' className="m-0 p-0 border-bottom" >
                     <MultiSelect
         options={options}
         value={selected}
@@ -60,7 +60,7 @@ class SalonleftSida extends Component {
         labelledBy={"Select"}
       />
             </MDBCol>
-            <MDBCol md='12' className="m-0 p-10 border-bottom">
+            <MDBCol md='12' className="m-0 p-10 border-bottom" >
               {
                 selected.map((n)=>
                 <MDBBadge color="light"
@@ -71,7 +71,7 @@ class SalonleftSida extends Component {
                 )
               }
             </MDBCol>
-                    <MDBCol md='12'>
+                    <MDBCol md='12' style={{height:"650px",overflowY:"scroll"}}>
                     <SalonList salonArray={selectedSalon} showinMap={showinMap}
                     ShowPopup={ShowPopup}
                     />

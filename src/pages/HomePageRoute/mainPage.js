@@ -13,11 +13,15 @@ import {
   MDBView,
   MDBBtn
 } from 'mdbreact';
-
+import isEmpty from 'lodash.isempty';
 class mainPage extends React.Component {
   scrollToTop = () => window.scrollTo(0, 0);
 
   render() {
+    let isInLogad = false;
+    if( !isEmpty(sessionStorage.getItem('jwt'))){
+      isInLogad= true;
+    } 
     return (
       <>
        <MDBRow>
@@ -38,9 +42,13 @@ class mainPage extends React.Component {
             <MDBBtn  rounded color='secondary'>
                Beauty Center
             </MDBBtn>
-            <MDBBtn rounded color="indigo">
+            {
+              isInLogad !==false?"":
+<MDBBtn rounded color="indigo">
                Log in
             </MDBBtn>
+            }
+            
           </MDBCol>
             </MDBMask>
           </MDBCardBody>

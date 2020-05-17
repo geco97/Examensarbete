@@ -20,6 +20,7 @@ import Routes from './Routes';
 import { connect } from 'react-redux'
 import { logout } from './store/actions/authActions'
 import isEmpty from 'lodash/isEmpty';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
@@ -146,9 +147,9 @@ class App extends Component {
                     
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default">
-                    <MDBDropdownItem href="/profile" className="mx-1 px-1">My Profile</MDBDropdownItem>
-                    <MDBDropdownItem href="#!" className="mx-1 px-1">My appointment</MDBDropdownItem>
-                    <MDBDropdownItem onClick={this.logout} className="mx-1 px-1">Log out</MDBDropdownItem>
+                    <MDBDropdownItem className="mx-1 px-1"><Link to={"/profile/"+user._id}>My Profile</Link></MDBDropdownItem>
+                    <MDBDropdownItem href="#!" className="mx-1 px-1"><Link to="/profile">My appointment</Link></MDBDropdownItem>
+                    <MDBDropdownItem onClick={this.logout} className="mx-1 px-1"><span style={{paddingLeft:"10px"}}>Log out</span></MDBDropdownItem>
                   </MDBDropdownMenu>
                 </MDBDropdown>
               </MDBNavItem>

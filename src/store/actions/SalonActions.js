@@ -8,6 +8,9 @@ export const getAllSalons = () => dispatch => {
     .then(res => res.json())
     .then(res => {
         dispatch({
+            type: actiontypes.FETCH_START
+        }) 
+        dispatch({
             type: actiontypes.FETCH_ALL_SALONS,
             Salons: res
         })
@@ -24,6 +27,9 @@ export const getthisSalon = (id) => dispatch => {
     })
     .then(res => res.json())
     .then(res => {
+        dispatch({
+            type: actiontypes.FETCH_START
+        }) 
         dispatch({
             type: actiontypes.FETCH_THIS_SALON,
             Salon: res

@@ -78,9 +78,12 @@ onSubmit = (e) => {
       <div id="classicformpage" >
         
         <MDBView>
-          <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
-></div>
-          <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
+         {/* <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
+></div>gradient
+*/} <video className="video-intro " playsInline={true}  autoPlay={true} muted={true} loop={true} >
+      <source src={require("../assets/Videos/animation.mp4")} type="video/mp4" />
+    </video>
+          <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient2">
             <MDBContainer className="HJ-85">
               <MDBRow className="h-100">
                 <MDBAnimation
@@ -101,7 +104,7 @@ onSubmit = (e) => {
                 
                 </MDBAnimation>
 
-                <MDBCol md="6" xl="5" className="mb-4">
+                <MDBCol md="6" xl="5" className="my-5">
                   <MDBAnimation type="fadeInRight" delay=".3s">
                     <MDBCard id="classic-card">
                       <MDBCardBody >
@@ -130,7 +133,9 @@ onSubmit = (e) => {
                   { authError}
                  </MDBAlert>
                     <MDBBtn disabled={!this.validateForm()} onClick={this.onSubmit} onChange={this.onChange} color="indigo">Login</MDBBtn>
-                    <Link to="/Register" className="btn btn-dark" >Register</Link>
+                    <Link to="/Register" color="secondary" >
+                    <MDBBtn color="secondary">Register</MDBBtn>
+                      </Link>
               
                           <hr className="hr-light" />
                           <div className="text-center d-flex justify-content-center white-label">

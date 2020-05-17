@@ -35,6 +35,7 @@ class SalonPage extends Component {
       };
     componentDidMount = ()=> { 
       const { id } = this.props.match.params;
+      console.log(id)
         this.props.dispatch(getthisSalon(id))
         this.setState({
           CurrentSalon:this.props.CurrentSalon,
@@ -54,15 +55,18 @@ class SalonPage extends Component {
        })
       }
       }
-      
+      console.log(CurrentSalon)
         return (
             <div id="classicformpage">
         
             <MDBView>
-              <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
-    ></div>
+            <video className="video-intro " playsInline={true}  autoPlay={true} muted={true} loop={true} >
+      <source src={require("../assets/Videos/animation.mp4")} type="video/mp4" />
+    </video>
+          {/*    <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
+    ></div> gradient*/}
               <MDBMask overlay="black-strong"  
-               className="d-flex justify-content-center align-items-center gradient">
+               className="d-flex justify-content-center align-items-center gradient2 ">
                 <MDBContainer className="HJ-85">
                   <MDBRow className="h-100">
                   <MDBAnimation
@@ -86,10 +90,10 @@ class SalonPage extends Component {
                       <SalonAbout currentSalon={CurrentSalon} isLoading={isLoading}/>
                   </MDBTabPane>
                   <MDBTabPane tabId='2'>
-                      <SalonGallery currentSalonGallery={CurrentSalon.images}  isLoading={isLoading}/>
+                      <SalonGallery currentSalonGallery={CurrentSalon.images} currentSalon={CurrentSalon}  isLoading={isLoading}/>
                   </MDBTabPane>
                   <MDBTabPane tabId='3'>
-                      <SalonCalendar/>
+                      <SalonCalendar currentSalon={CurrentSalon} user={this.props.user}/>
                   </MDBTabPane>
                 </MDBTabContent>
                 )
@@ -115,6 +119,7 @@ const mapStateToProps = (state) => {
   return {
       authError: state.profile.authError,
       token: state.profile.token,
+      user:state.profile.user,
       CurrentSalon: state.salon.currentSalon,
       Error: state.salon.Error
   }

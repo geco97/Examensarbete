@@ -18,10 +18,36 @@ import {
   MDBBtn,
   MDBAnimation
 } from "mdbreact";
+import isEmpty from 'lodash.isempty';
+
 class Myprofile extends Component {
+  state={
+    user:this.props.user,
+    password:"********"
+  }
+  onChange=(e)=>{
+   let field = e.target.id;
+    this.setState({
+     user:{...this.state.user,[field]:e.target.value}
+    })
+  }
+  onChangePassword=(e)=>{
+    if(!isEmpty(e.target.value) && e.target.value.length >=8 && e.target.value !=="********"){
+      this.setState({
+        user:{...this.state.user,password:e.target.value},
+        password:e.target.value
+       })
+    }
+  }
+  OnSaveThisUser=()=>{
+   // console.log(this.state.user)
+   this.props.onUpdateUser(this.state.user)
+
+  }
     render() {
-        const {firstname, lastname, email, password, addressline, zipcode, city, country, termsaccept} = []
+        const {firstname, lastname, email,  addressline, zipcode, city, country, termsaccept} = this.state.user
         var massage ;
+        let password = this.state.password;
         var authErrorShow = "d-none";
         const {authError,authErrorClass} = this.props;
         return (
@@ -42,7 +68,7 @@ class Myprofile extends Component {
                           error='wrong'
                           className="my-1"
                           containerClass="m-0"
-                          id="Firstname"
+                          id="firstname"
                           success='right'
                            onChange={this.onChange}
                            value={firstname}
@@ -58,7 +84,7 @@ class Myprofile extends Component {
                           error='wrong'
                           className="my-1"
                           containerClass="m-0"
-                          id="Lastname"
+                          id="lastname"
                           success='right'
                            onChange={this.onChange}
                            value={lastname}
@@ -142,22 +168,7 @@ class Myprofile extends Component {
                            value={email}
                         />
                             </MDBCol>
-                            <MDBCol md='6' >
-                            <MDBInput
-                          label='Comfirm your email'
-                          icon='envelope'
-                          group
-                          type='email'
-                          className="my-1"
-                          containerClass="m-0"
-                          validate
-                          error='wrong'
-                          id="Confirmemail"
-                          success='right'
-                           onChange={this.onChange}
-                           value={email}
-                        />
-                            </MDBCol>
+                            
                             <MDBCol md='6'>
                             <MDBInput
                           label='Type your password'
@@ -170,26 +181,11 @@ class Myprofile extends Component {
                           error='wrong'
                           id="password"
                           success='right'
-                           onChange={this.onChange}
+                           onChange={this.onChangePassword}
                            value={password}
                         />
                             </MDBCol>
-                            <MDBCol md='6'>
-                            <MDBInput
-                          label='Comfirm your password'
-                          icon='lock'
-                          className="my-1"
-                          containerClass="m-0"
-                          group
-                          type='password'
-                          validate
-                          error='wrong'
-                          id="Confirmpassword"
-                          success='right'
-                           onChange={this.onChange}
-                           value={password}
-                        />
-                            </MDBCol>
+                           
 
                         </MDBRow>
                         <hr className="hr-light" />
@@ -197,7 +193,7 @@ class Myprofile extends Component {
                         <MDBAlert color={authErrorClass} className={authErrorShow}>
                       { massage}
                      </MDBAlert>
-                    <MDBBtn  color="indigo">Save</MDBBtn>
+                    <MDBBtn  color="indigo" onClick={this.OnSaveThisUser}>Save</MDBBtn>
                     {/*disabled={!this.validateForm()} onClick={this.onSubmit} onChange={this.onChange}*/}
                     </div>
             </div>

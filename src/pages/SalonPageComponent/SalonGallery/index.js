@@ -1,75 +1,81 @@
-import React from 'react';
-      import { MDBGallery, MDBGalleryList} from 'mdbreact';
+import React from "react";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import Lightbox from "react-image-lightbox";
+import "../../LightBox.css";
+import isEmpty from 'lodash.isempty';
 
-      function SalonGallery() {
-        const dataImg = [
-          {
-            img:
-              'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg',
-            cols: 1,
-            title: 'image',
-          },
-          {
-            img:
-              'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(72).jpg',
-            cols: 2,
-            title: 'image',
-          },
-          {
-            img:
-              'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(71).jpg',
-            cols: 1,
-            title: 'image',
-          },
-          {
-            img:
-              'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(74).jpg',
-            cols: 2,
-            title: 'image',
-          },
-          {
-            img:
-              'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg',
-            cols: 2,
-            title: 'image',
-          },
+class SalonGallery extends React.Component {
+  state = {
+    photoIndex: 0,
+    isOpen: false,
+    images:isEmpty(this.props.currentSalonGallery)?[]:this.props.currentSalonGallery,
+    colWidth: [3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3]
+  }
+  componentDidUpdate=(prevProps)=> {
+    if (this.props.currentSalonGallery !== this.state.images) {
+      this.setState({
+        images:this.props.currentSalonGallery
+      })
+    }
+  }
+  renderImages = () => {
+    let photoIndex = -1;
+    const { images } = this.state;
+    
+    return images.map((imageSrc, index) => {
+      photoIndex++;
+      const privateKey = photoIndex;
+      return (
+        <MDBCol md={this.state.colWidth[index]} key={photoIndex}>
+          <figure>
+            <img
+              src={require("../../../assets/images/images"+imageSrc)}
+              alt="Gallery"
+              className="img-fluid z-depth-1"
+              onClick={() =>
+                this.setState({ photoIndex: privateKey, isOpen: true })
+              }
+            />
+          </figure>
+        </MDBCol>
+      );
+    })
+  }
 
-          {
-            img:
-              'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(78).jpg',
-            cols: 1,
-            title: 'image',
-          },
-          {
-            img:
-              'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(77).jpg',
-            cols: 2,
-            title: 'image',
-          },
-          {
-            img:
-              'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(79).jpg',
-            cols: 1,
-            title: 'image',
-          }
-        ];
+  render() {
+    const { photoIndex, isOpen, images } = this.state;
+    return (
+      <MDBContainer className="mt-5 p-3" >
+        <div className="mdb-lightbox p-3">
+          <MDBRow>
+            {this.renderImages()}
+          </MDBRow>
+        </div>
+        {isOpen && (
+          <Lightbox
+            mainSrc={require("../../../assets/images/images"+images[photoIndex])}
+            nextSrc={require("../../../assets/images/images"+images[(photoIndex + 1) % images.length])}
+            prevSrc={require("../../../assets/images/images"+images[(photoIndex + images.length - 1) % images.length])}
+            imageTitle={photoIndex + 1 + "/" + images.length}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length
+              })
+            }
+          />
+        )}
+        <MDBCol md="12" className="text-center py-4">
+          <MDBBtn outline color="black"><strong>more</strong></MDBBtn>
+        </MDBCol>
+      </MDBContainer >
+    );
+  }
+}
 
-        return (
-          <MDBGallery cols={4}>
-            {dataImg.map(({ cols, img, title }, i) => {
-              return (
-                <MDBGalleryList
-                  key={i}
-                  cols={cols || 1}
-                  titleClasses='rounded'
-                  styles={{ boxShadow: '0 0 3px rgba(0,0,0, .3)' }}
-                >
-                  <img src={img} alt={title} />
-                </MDBGalleryList>
-              );
-            })}
-          </MDBGallery>
-        );
-      }
-
-      export default SalonGallery;
+export default SalonGallery;

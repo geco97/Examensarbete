@@ -20,30 +20,33 @@ import {
 class Section3Body extends Component {
     state={
         isOpen: false,
-        videoUrl:""
+        videoUrl:"",
+        VideoTitle:""
     }
-    onChooseVideo=(videoUrl)=>{
+    onChooseVideo=(videoUrl,VideoTitle)=>{
         if(videoUrl !== ""){
             this.setState({
                 isOpen: true,
-                videoUrl:videoUrl
+                videoUrl:videoUrl,
+                VideoTitle:VideoTitle
             })
         }else{
             this.setState({
                 isOpen: false,
-                videoUrl:""
+                videoUrl:"",
+                VideoTitle:""
             })
         }
     }
 
     render() {
-        const {isOpen,videoUrl} = this.state;
+        const {isOpen,videoUrl,VideoTitle} = this.state;
         return (
             <div>
               
                 {
                    isOpen===true?
-                    <VideoPlay videoUrl={videoUrl}/>
+                    <VideoPlay videoUrl={videoUrl} VideoTitle={VideoTitle} onChooseVideo={this.onChooseVideo}/>
                    : 
                    <VideoCard onChooseVideo={this.onChooseVideo}/>
                 }

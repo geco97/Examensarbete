@@ -29,6 +29,13 @@ const salReducer = (state = initialState, action) => {
                     Error: null,
                     currentSalon: action.Salon
                 }
+            //FETCH_START
+            case actiontypes.FETCH_START:
+                console.log('FETCH_START')
+                return {
+                    ...state,
+                    currentSalon: []
+                }
         default:
             return {
                 ...state

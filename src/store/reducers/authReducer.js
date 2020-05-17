@@ -51,14 +51,7 @@ const authReducer = (state = initialState, action) => {
                 user: action.payload.user,
                 loggedIn: (action.payload.user)?true:false                
             }
-        case actiontypes.LOGOUT_SUCCESS:
-                console.log('LOGOUT_SUCCESS')
-                return {
-                    ...state,
-                    token: "",
-                    user: "",
-                    loggedIn: false                
-                }
+      
         
 
         case actiontypes.GET_PROFILE_SUCCESS:
@@ -70,9 +63,12 @@ const authReducer = (state = initialState, action) => {
             }
 
         case actiontypes.UPDATE_PROFILE_SUCCESS:
+            console.log(action)
             return {
                 ...state,
-                user: action.user
+                token: action.data.token,
+                user: action.data.user,
+                loggedIn: (action.data.user)?true:false    
             }
         
         default:

@@ -16,7 +16,8 @@ const actiontypes = {
 
     FETCH_ALL_SALONS: 'FETCH_ALL_SALONS',
     FETCH_THIS_SALON: 'FETCH_THIS_SALON',
-    FETCH_FAILED:' FETCH_FAILED'
+    FETCH_FAILED:' FETCH_FAILED',
+    FETCH_START:'FETCH_START'
 }
 
 export default actiontypes

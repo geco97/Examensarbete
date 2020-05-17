@@ -162,6 +162,7 @@ img {
   color: #bca47a !important;
 }
 .view{
+ /* height: 350vh;*/
   height: 94vh;
 }
 .view .mask{
@@ -180,6 +181,7 @@ img {
   background: linear-gradient(135deg, rgb(28, 0, 100) 0%, rgb(26, 0, 34) 70%);
   opacity: 0.90;
 }
+
 .HJ-85{
   height: 85vh;
   margin-top: 100px;

@@ -3,8 +3,8 @@ import {  MDBRow, MDBCol, MDBCard, MDBView, MDBMask, MDBCardTitle, MDBCardText, 
 from "mdbreact";
 
 class VideoCard extends Component {
-    OnClickedVedio=(VideoURl)=>{
-        this.props.onChooseVideo(VideoURl)
+    OnClickedVedio=(VideoURl,VideoTitle)=>{
+        this.props.onChooseVideo(VideoURl,VideoTitle)
     }
     render() {
         
@@ -25,7 +25,7 @@ class VideoCard extends Component {
               />
             <MDBMask className="flex-center" overlay="orange-slight" style={{ overflow:"hidden"}} >
             <MDBBtn color="unique" className="rounded-circle z-depth-1-half" 
-            onClick={(e)=>this.OnClickedVedio('Videos1')}
+            onClick={(e)=>this.OnClickedVedio('Videos1','Klippstugan')}
               style={{padding:"14px 16px "}}>
               <MDBIcon icon="play" size="md"/> 
               </MDBBtn>
@@ -44,7 +44,7 @@ class VideoCard extends Component {
               />
             <MDBMask className="flex-center" overlay="orange-slight" style={{ overflow:"hidden"}} >
             <MDBBtn color="unique" className="rounded-circle z-depth-1-half" 
-              onClick={(e)=>this.OnClickedVedio('Videos2')}
+              onClick={(e)=>this.OnClickedVedio('Videos2','Harmoniq')}
               style={{padding:"14px 16px "}}>
               <MDBIcon icon="play" size="md"/> 
               </MDBBtn>
@@ -63,7 +63,7 @@ class VideoCard extends Component {
               />
             <MDBMask className="flex-center" overlay="orange-slight" style={{ overflow:"hidden"}} >
             <MDBBtn color="unique" className="rounded-circle z-depth-1-half" 
-            onClick={(e)=>this.OnClickedVedio('Videos4')}
+            onClick={(e)=>this.OnClickedVedio('Videos4','Relax Lounge')}
               style={{padding:"14px 16px "}}>
               <MDBIcon icon="play" size="md"/> 
               </MDBBtn>
@@ -82,7 +82,7 @@ class VideoCard extends Component {
               />
             <MDBMask className="flex-center" overlay="orange-slight" style={{ overflow:"hidden"}} >
             <MDBBtn color="unique" className="rounded-circle z-depth-1-half" 
-            onClick={(e)=>this.OnClickedVedio('Videos5')}
+            onClick={(e)=>this.OnClickedVedio('Videos5','Aktiv Fötter')}
               style={{padding:"14px 16px "}}>
               <MDBIcon icon="play" size="md"/> 
               </MDBBtn>

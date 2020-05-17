@@ -53,11 +53,8 @@ class Salon extends Component {
         selectedSalon:salon
       })
     }
-    ShowPopup = (salon) =>{
-      this.setState({
-        showPopUp:true,
-        ChoosenSalon:salon
-      })
+    SaveAsFavorite = (salon) =>{
+      console.log(salon)
     }
     closePopup = () =>{
       this.setState({
@@ -87,12 +84,14 @@ class Salon extends Component {
       }
       }
         return (
+          <MDBView>
+          <video className="video-intro " playsInline={true}  autoPlay={true} muted={true} loop={true} >
+            <source src={require("../assets/Videos/animation.mp4")} type="video/mp4" />
+          </video>
+          <MDBMask  className="d-flex justify-content-center align-items-center gradient2">
+            <MDBContainer fluid className="p-md-3 px-sm-0">
             <div id="classicformpage">
         
-            <MDBView>
-              <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
-    ></div>
-              <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
                 <MDBContainer className="HJ-85">
                   <MDBRow className="h-100">
                   <MDBAnimation
@@ -105,7 +104,7 @@ class Salon extends Component {
                     <div className="spinner-border text-primary" role="status"><span className="sr-only">Loading...</span> </div>
                     :
                     <SalonleftSide salonArray={salonList} showinMap={this.showinMap}
-                    ShowPopup={this.ShowPopup}
+                    SaveAsFavorite={this.SaveAsFavorite}
                     />
                   }
                   
@@ -128,10 +127,12 @@ class Salon extends Component {
                     
                     </MDBRow>
                     </MDBContainer>
-                    </MDBMask>
-                    </MDBView>
-                    <Reserve showmodal={showPopUp} closePopup={this.closePopup}/>
+                    {/*<Reserve showmodal={showPopUp} closePopup={this.closePopup}/>*/}
                     </div>
+                    </MDBContainer>
+    </MDBMask>
+  </MDBView>
+
         );
     }
 }

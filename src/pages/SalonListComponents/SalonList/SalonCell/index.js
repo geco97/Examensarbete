@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import {MDBRow,MDBCol,MDBBtn,MDBIcon,MDBMedia,MDBBtnGroup} from 'mdbreact';
 import {Link} from 'react-router-dom'
+import isEmpty from 'lodash.isempty';
 class index extends Component {
-
+  
     render() {
-      const { Salon,showinMap,ShowPopup } = this.props;
+      const { Salon,showinMap,SaveAsFavorite } = this.props;
+      let isInLogad = false;
+      if( !isEmpty(sessionStorage.getItem('jwt'))){
+        isInLogad= true;
+      } 
       return (
             <MDBRow>
                 <MDBCol md='12' className="p-1 my-1" >
@@ -35,7 +40,14 @@ class index extends Component {
             <MDBCol md='12' className="m-0 p-0  text-right" >
             <MDBBtnGroup size='sm'>
             <MDBBtn active color='secondary' onClick={(event)=>showinMap(Salon)}><MDBIcon icon='map'  /> </MDBBtn>
-            <MDBBtn active color='indigo' onClick={(event) => ShowPopup(Salon)}><MDBIcon icon='calendar'  /> </MDBBtn>
+            {
+isInLogad === true?
+<MDBBtn active color='indigo' onClick={(event) => SaveAsFavorite(Salon)}><MDBIcon icon='star'  /> </MDBBtn>
+:
+
+<MDBBtn color="indigo"><Link to="/Login" color="secondary" ><MDBIcon icon='star'  /> </Link> </MDBBtn>
+ 
+            }
             </MDBBtnGroup>
                 </MDBCol>
           </MDBMedia>

@@ -20,28 +20,35 @@ import {
   MDBBtn,
   MDBAnimation
 } from "mdbreact";
-import { update } from '../store/actions/authActions'
+import { update,get } from '../store/actions/authActions'
 import isEmpty from 'lodash/isEmpty';
 import Myprofile from './profileComponents/Myprofile'
 import TablePage from './profileComponents/profileApointment'
 import TableFAVPage from './profileComponents/profileFivorite'
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
       authError: state.profile.authError,
-      token: state.profile.token
+      token: state.profile.token,
+      user: state.profile.user
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    update: (credentials) => dispatch(update(credentials))
+    get:(id)=>dispatch(get(id)),
+    update: (credentials) => dispatch(update(credentials)),
+    dispatch
   }
 }
 
 class profile extends Component {
     state = {
-        activeItemPills: '1'
+        activeItemPills: '1',
+        user:{},
+        isLoading:true
+
       };
       togglePills = tab => () => {
         const { activePills } = this.state;
@@ -51,12 +58,36 @@ class profile extends Component {
           });
         }
       };
+componentDidUpdate(prevProps) {
+  if (this.props.user !== prevProps.user) {
+      this.setState({
+        user:this.props.user,
+        isLoading:false
+      })
+        }
+      }
+componentDidMount = ()=> { 
+  const { id } = this.props.match.params;
+        if(this.state.isLoading === true){
+          this.props.dispatch(get(id))
+          this.setState({
+            user:this.props.user,
+            isLoading:(isEmpty(this.props.user))?true:false
+          })
+        }
+}
+onUpdateUser=(user)=>{
+  //console.log(user)
+  this.props.dispatch(update(user))
+}
     render() {
-       
-        const { activeItemPills } = this.state;
-        const { authError, token } = this.props;
+       console.log("asd",this.props)
+        const { activeItemPills,isLoading,user } = this.state;
+        const { authError, token} = this.props;
         console.log(sessionStorage.getItem('jwt'))
-        if(isEmpty(token) && isEmpty(sessionStorage.getItem('jwt'))){return <Redirect to='/' />}
+        if(isEmpty(token) && isEmpty(sessionStorage.getItem('jwt'))){
+          return <Redirect to='/' />
+        }
         var authErrorClass;
         
         if (!authError ) {
@@ -66,15 +97,29 @@ class profile extends Component {
                 <div id="classicformpage">
         
         <MDBView>
-          <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
-></div>
-          <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient">
+         {/* <div className="huerotate" style={{ backgroundImage: `url(${require("../assets/images/Img2.jpg")})` }}
+></div>*/}
+<video className="video-intro " playsInline={true}  autoPlay={true} muted={true} loop={true} >
+      <source src={require("../assets/Videos/animation.mp4")} type="video/mp4" />
+    </video>
+          <MDBMask overlay="black-strong"   className="d-flex justify-content-center align-items-center gradient2">
             <MDBContainer  className="HJ-85">
-              <MDBRow>
+              {
+isLoading===true?
+<MDBRow>
+<MDBCol md="12" xl="12" className="my-4" >
+<div className="spinner-border text-secondary" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+      </MDBCol>
+      </MDBRow>
+:
+        (
+<MDBRow>
                 <MDBAnimation
                   type="fadeInLeft"
                   delay=".3s"
-                  className="white-text text-center text-md-left d-none d-md-block col-md-3 mt-xl-3 mb-5"
+                  className="white-text text-center text-md-left d-none d-md-block col-md-3 mt-xl-3 my-5"
                 >
                   <MDBNav className='nav-pills d-block'>
                   <MDBNavItem>
@@ -96,13 +141,13 @@ class profile extends Component {
                 
                 </MDBAnimation>
 
-                <MDBCol md="9" xl="9" className="mb-4" >
+                <MDBCol md="9" xl="9" className="my-4" >
                   <MDBAnimation type="fadeInRight" delay=".3s">
                     <MDBCard id="classic-card" style={{height:"500px"}}> 
                       <MDBCardBody >
                       <MDBTabContent activeItem={activeItemPills}>
                   <MDBTabPane tabId='1'>
-                  <Myprofile authError={authError}/>
+                  <Myprofile authError={authError} user={user} onUpdateUser={this.onUpdateUser}/>
                   </MDBTabPane>
                   <MDBTabPane tabId='2'>
                    <TablePage/>
@@ -112,44 +157,15 @@ class profile extends Component {
                   </MDBTabPane>
                 </MDBTabContent>
 
-
-{/*
-                        
-                        <h3 className="text-center">
-                          <MDBIcon icon="user" /> Sign in:
-                        </h3>
-                        <hr className="hr-light" />
-                       
-                        <MDBInput label='Type your email'
-                      icon='envelope'
-                      group
-                      type='email'
-                      validate
-                      error='wrong'
-                      id="email"
-                      success='right'
-                       onChange={this.onChange}
-                       value=""
-                        />
-                        <MDBInput
-                         label='Type your password' icon='lock' group type='password' id="password" validate 
-                         onChange={this.onChange} value=""
-                        />
-                        <div className="text-center mt-4 ">
-                  <MDBAlert color="danger" className={authErrorClass}>
-                  { authError}
-                 </MDBAlert>
-                    <MDBBtn color="indigo">Spara</MDBBtn>*/}
-                   {/*
-                   disabled={!this.validateForm()} onClick={this.onSubmit} onChange={this.onChange} 
-                   
-                        </div>*/}
                       </MDBCardBody>
                     </MDBCard>
                   </MDBAnimation>
                 </MDBCol>
           
               </MDBRow>
+        )
+              }
+              
             </MDBContainer>
           </MDBMask>
         </MDBView>
