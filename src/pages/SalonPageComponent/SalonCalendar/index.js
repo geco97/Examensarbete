@@ -7,11 +7,79 @@ import interactionPlugin from '@fullcalendar/interaction';
 import Reserve from '../../Modal/Reserve';
 import './main.scss' // webpack must be configured to do this
 import isEmpty from 'lodash.isempty';
+import SalonGallery from '../SalonGallery';
 
+
+const events =	[{
+  id: 1,
+  title: 'All Day Event',
+  start: '2020-05-01'
+},
+{
+  id: 2,
+  title: 'Long Event',
+  start: '2017-05-07',
+  end: '2020-05-10'
+},
+{
+  id: 3,
+  title: 'Repeating Event',
+  start: '2020-05-09T16:00:00'
+},
+{
+  id: 4,
+  title: 'Repeating Event',
+  start: '2020-05-16T16:00:00'
+},
+{
+  id: 5,
+  title: 'Conference',
+  start: '2020-05-11',
+  end: '2020-05-13'
+},
+{
+  id: 6,
+  title: 'Meeting',
+  start: '2020-05-12T10:30:00',
+  end: '2020-05-12T12:30:00'
+},
+{
+  id: 7,
+  title: 'Lunch',
+  start: '2020-05-12T12:00:00'
+},
+{
+  id: 8,
+  title: 'Meeting',
+  start: '2020-05-12T14:30:00'
+},
+{
+  id: 9,
+  title: 'Happy Hour',
+  start: '2020-05-12T17:30:00'
+},
+{
+  id: 10,
+  title: 'Dinner',
+  start: '2020-05-12T20:00:00'
+},
+{
+  id: 11,
+  title: 'Birthday Party',
+  start: '2020-05-13T07:00:00'
+},
+{
+  id: 12,
+  title: 'Click for Google',
+  url: 'http://google.com/',
+  start: '2020-05-28'
+}
+];   
 export default class DemoApp extends React.Component {
   state={
     showPopUp:false,
-    dateFCobject:{}
+    dateFCobject:{},
+    event:[]
   }
   closePopup=()=>{
     this.setState({
@@ -19,11 +87,32 @@ export default class DemoApp extends React.Component {
       dateFCobject:{}
     })
   }
+  /*componentDidUpdate = (prevProps, prevState)=> {
+    
+    let eventA =[];
+    if(prevState.TicketList !== this.props.TicketList ){
+      this.props.TicketList.map((Card)=>{
+        eventA.push(
+          {
+            id:Card._id,
+            title:this.props.currentSalon.Name,
+            start:`${Card.Date}T${Card.Time}`
+          }
+        )
+      })
+     this.setState({
+      event:eventA
+    })    
+   }
+  }*/
   render() {
     let isInLogad = false;
     if( !isEmpty(sessionStorage.getItem('jwt'))){
       isInLogad= true;
     } 
+   
+   console.log(this.props)
+    
     return (
       <>
       <FullCalendar 
@@ -37,6 +126,7 @@ export default class DemoApp extends React.Component {
         maxTime="20:00"
         timeZone="Europe/Stockholm"
         rerenderDelay={10}
+        events={this.props.TicketList}
         visibleRange= {
           function(currentDate) {
             // Generate a new date for manipulating in the next step

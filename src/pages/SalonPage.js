@@ -17,13 +17,14 @@ import SalonGallery from './SalonPageComponent/SalonGallery'
 import SalonCalendar from './SalonPageComponent/SalonCalendar'
 import { connect } from 'react-redux'
 import isEmpty from 'lodash.isempty';
-import { getthisSalon } from '../store/actions/SalonActions'
+import { getthisSalon, getThisSalonTicket } from '../store/actions/SalonActions'
 
 class SalonPage extends Component {
     state = {
         activeItemPills: '1',
         CurrentSalon:[],
-        isLaoding:true
+        isLaoding:true,
+        TicketList:[]
       };
       togglePills = tab => () => {
         const { activePills } = this.state;
@@ -37,15 +38,17 @@ class SalonPage extends Component {
       const { id } = this.props.match.params;
       console.log(id)
         this.props.dispatch(getthisSalon(id))
+        this.props.dispatch(getThisSalonTicket(id))
         this.setState({
           CurrentSalon:this.props.CurrentSalon,
+          TicketList:this.props.TicketList,
           isLoading: isEmpty(this.props.CurrentSalon)?true:false
        })
            
     }
     render() {
       const { id } = this.props.match.params;
-      const { authError, token,Error} = this.props;
+      const { authError, token,Error,TicketList} = this.props;
       const { CurrentSalon,isLoading} = this.state
       if(isLoading === true){
         if(!isEmpty(this.props.CurrentSalon)){
@@ -55,6 +58,15 @@ class SalonPage extends Component {
        })
       }
       }
+      const eventA =[];
+      if(this.props.TicketList.length >=1){
+      this.props.TicketList.map((Card)=>{
+        eventA.push(
+          {
+            "title":"Reservation",
+            "start":`${Card.Date}T${Card.Time}:00`
+          })
+      })}
       console.log(CurrentSalon)
         return (
             <div id="classicformpage">
@@ -93,7 +105,7 @@ class SalonPage extends Component {
                       <SalonGallery currentSalonGallery={CurrentSalon.images} currentSalon={CurrentSalon}  isLoading={isLoading}/>
                   </MDBTabPane>
                   <MDBTabPane tabId='3'>
-                      <SalonCalendar currentSalon={CurrentSalon} user={this.props.user}/>
+                      <SalonCalendar TicketList={eventA} currentSalon={CurrentSalon} user={this.props.user}/>
                   </MDBTabPane>
                 </MDBTabContent>
                 )
@@ -116,18 +128,21 @@ class SalonPage extends Component {
     }
 }
 const mapStateToProps = (state) => {
+  console.log("asd",state)
   return {
       authError: state.profile.authError,
       token: state.profile.token,
       user:state.profile.user,
       CurrentSalon: state.salon.currentSalon,
-      Error: state.salon.Error
+      Error: state.salon.Error,
+      TicketList: state.ticket.TicketList
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
     getthisSalon: (id) => dispatch(getthisSalon(id)),
+    getThisSalonTicket: (id) => dispatch(getThisSalonTicket(id)),
     dispatch
   }
 }
-export default connect(mapStateToProps)(SalonPage);
+export default connect(mapStateToProps,mapDispatchToProps)(SalonPage);

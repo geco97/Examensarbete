@@ -1,5 +1,6 @@
 import actiontypes from './actiontypes'
 const apiurl = 'http://localhost:9999/api/beautyCenters'
+const apiurl3 = 'http://localhost:9999/api/tickets'
 
 export const getAllSalons = () => dispatch => {
     fetch(`${apiurl}/getAll`, {
@@ -38,6 +39,33 @@ export const getthisSalon = (id) => dispatch => {
     .catch(() => {
         dispatch({
             type: actiontypes.FETCH_FAILED
+        })       
+    }) 
+}
+
+//getThisSalonTicket
+export const getThisSalonTicket = (id) => dispatch => {
+    const token = sessionStorage.getItem("jwt")
+    fetch(`${apiurl3}/Cards/${id}`,  {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            'authorization': 'bearer ' + token
+        }
+    })
+    .then(res => res.json())
+    .then(res => {
+        dispatch({
+            type: actiontypes.FETCH_START_TICKET
+        }) 
+        dispatch({
+            type: actiontypes.FETCH_TICKETS,
+            Salon: res
+        })
+    })
+    .catch(() => {
+        dispatch({
+            type: actiontypes.FETCH_FAILED_TICKET
         })       
     }) 
 }
